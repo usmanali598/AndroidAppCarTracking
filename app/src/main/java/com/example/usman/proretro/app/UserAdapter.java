@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.usman.proretro.R;
 import com.example.usman.proretro.models.User;
@@ -39,12 +41,20 @@ public class UserAdapter extends ArrayAdapter<User> {
             row = inflater.inflate(R.layout.list_item_pagination, parent, false);
         }
 
-        TextView textView = (TextView) row.findViewById(R.id.list_item_pagination_text);
+        final TextView textView = (TextView) row.findViewById(R.id.list_item_pagination_text);
+        Button list_butt = (Button) row.findViewById(R.id.editing);  
 
         User item = values.get(position);
         String message = item.getName()+" - "+item.getUsername()+" - "+item.getPassword()+" - "+item.getEmail();
         textView.setText(message);
 
+        list_butt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Button clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        
         return row;
     }
 }
