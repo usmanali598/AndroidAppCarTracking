@@ -62,7 +62,7 @@ public class FuelAdapter extends ArrayAdapter<Fuel> {
         list_butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(context, "Editing", Toast.LENGTH_SHORT).show();
+
                 Fuel fuel = new Fuel(item.getFuelId(), item.getUserperson(), item.getAmount(), item.getLitres(), item.getDate());
                 Toast.makeText(context, ""+fuel.getFuelId()+" / "+fuel.getUserperson()+" / "+fuel.getAmount()+" / "+fuel.getLitres()+" / "+fuel.getDate(), Toast.LENGTH_SHORT).show();
 
@@ -74,11 +74,7 @@ public class FuelAdapter extends ArrayAdapter<Fuel> {
                 intenti.putExtra("date", item.getDate());
 
                 context.startActivity(intenti);
-                    /* UserAdapter usi = item.get(position);
-                Intent intent = new Intent(activity, MainActivity.class);
-                intent.putExtra("id", item.getName());
 
-                activity.startActivity(intent);*/
             }
 
         });

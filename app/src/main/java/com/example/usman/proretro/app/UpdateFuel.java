@@ -32,7 +32,6 @@ public class UpdateFuel extends AppCompatActivity{
     private EditText updateLitres;
     private EditText updateDate;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,21 +41,14 @@ public class UpdateFuel extends AppCompatActivity{
         long getid = 0;
         String userP = null, amount = null, lit = null, date = null;
 
-        Bundle extras = getIntent().getExtras();
-        /*if (extras != null) {
-             getid = extras.getLong("fuelId",0);
-             userP = extras.getString("userPerson", "");
-             amount = extras.getString("amount", "");
-             lit = extras.getString("litre", "");
-             date = extras.getString("date", "");
-        }*/
+
         id = (EditText) findViewById(R.id.etId);
         updateUserPerson = (EditText) findViewById(R.id.upUserPerson);
         updateAmount = (EditText) findViewById(R.id.upAmount);
         updateLitres = (EditText) findViewById(R.id.upLitre);
         updateDate = (EditText) findViewById(R.id.upDate);
         
-       // id.setText(ina.getExtras().getLong("fuelId"));
+
         String ids = String.valueOf(ina.getLongExtra("fuelId", 0));
         id.setText(ids);
         updateUserPerson.setText(ina.getStringExtra("userPerson"));

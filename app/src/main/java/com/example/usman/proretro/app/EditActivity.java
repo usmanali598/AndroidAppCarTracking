@@ -26,6 +26,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by usman on 17/03/2018.
  */
 
+//Unused file now as scope is limited for fuel
+
 public class EditActivity extends AppCompatActivity{
 
     private TextView tv;
@@ -38,7 +40,6 @@ public class EditActivity extends AppCompatActivity{
         tv.setText("This is just showcase...");
 
         //Intent ina = getIntent();
-
 
          EditText userName = (EditText) findViewById(R.id.usera);
          EditText passworD = (EditText) findViewById(R.id.passworda);

@@ -65,15 +65,11 @@ public class UserAdapter extends ArrayAdapter<User> {
         list_butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(context, "Editing", Toast.LENGTH_SHORT).show();
+
                 User user = new User(item.getUsername(), item.getPassword(), item.getName(), item.getEmail());
                 Toast.makeText(context, ""+getItemId(position+1)+" / "+user.getUsername()+" / "+user.getPassword()+" / "+user.getName()+" / "+user.getEmail(), Toast.LENGTH_SHORT).show();
 
-              /* UserAdapter usi = item.get(position);
-                Intent intent = new Intent(activity, MainActivity.class);
-                intent.putExtra("id", item.getName());
 
-                activity.startActivity(intent);*/
             }
 
         });
