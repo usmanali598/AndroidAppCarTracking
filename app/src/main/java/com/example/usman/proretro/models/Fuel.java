@@ -9,18 +9,43 @@ import com.google.gson.annotations.SerializedName;
 
 public class Fuel {
 
+    @SerializedName("fuelId")
+    @Expose
+    private Long fuelId;
     @SerializedName("userperson")
     @Expose
     private String userperson;
     @SerializedName("amount")
     @Expose
-    private Integer amount;
+    private String amount;
     @SerializedName("litres")
     @Expose
-    private Integer litres;
+    private String litres;
     @SerializedName("date")
     @Expose
     private String date;
+
+    public Fuel(Long fuelId, String userperson, String amount, String litres, String date) {
+        this.fuelId = fuelId;
+        this.userperson = userperson;
+        this.amount = amount;
+        this.litres = litres;
+        this.date = date;
+    }
+    public Fuel(String userperson, String amount, String litres, String date) {
+        this.userperson = userperson;
+        this.amount = amount;
+        this.litres = litres;
+        this.date = date;
+    }
+
+    public Long getFuelId() {
+        return fuelId;
+    }
+
+    public void setFuelId(Long fuelId) {
+        this.fuelId = fuelId;
+    }
 
     public String getUserperson() {
         return userperson;
@@ -30,19 +55,19 @@ public class Fuel {
         this.userperson = userperson;
     }
 
-    public Integer getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
-    public Integer getLitres() {
+    public String getLitres() {
         return litres;
     }
 
-    public void setLitres(Integer litres) {
+    public void setLitres(String litres) {
         this.litres = litres;
     }
 

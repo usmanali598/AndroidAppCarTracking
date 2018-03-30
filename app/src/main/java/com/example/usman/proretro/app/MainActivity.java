@@ -3,6 +3,7 @@ package com.example.usman.proretro.app;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -36,14 +37,13 @@ public class MainActivity extends AppCompatActivity {
 
         butt = (Button)findViewById(R.id.btn);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.0.101:8080/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.43.65:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         Api apiService = retrofit.create(Api.class);
 
         Call<List<User>> call = apiService.getUsers();
-
 
         call.enqueue(new Callback<List<User>>() {
             @Override
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 listView.setAdapter(new UserAdapter(MainActivity.this, userLis));
-
+                listView.getAdapter().getItemId(2);
             }
 
             @Override

@@ -35,7 +35,7 @@ public class FuelActivity extends AppCompatActivity {
         final ListView listView = (ListView) findViewById(R.id.fuel_list);
 
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.0.101:8080/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

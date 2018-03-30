@@ -1,6 +1,11 @@
 package com.example.usman.proretro.app;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +19,8 @@ import com.example.usman.proretro.R;
 import com.example.usman.proretro.models.User;
 
 import java.util.List;
+
+import retrofit2.Response;
 
 /**
  * Created by usman on 10/03/2018.
@@ -32,7 +39,7 @@ public class UserAdapter extends ArrayAdapter<User> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, final View convertView, ViewGroup parent) {
         View row = convertView;
 
         if (row == null) {
@@ -44,17 +51,36 @@ public class UserAdapter extends ArrayAdapter<User> {
         final TextView textView = (TextView) row.findViewById(R.id.list_item_pagination_text);
         Button list_butt = (Button) row.findViewById(R.id.editing);  
 
-        User item = values.get(position);
-        String message = item.getName()+" - "+item.getUsername()+" - "+item.getPassword()+" - "+item.getEmail();
+        final User item = values.get(position);
+        final String message = item.getName()+" - "+item.getUsername()+" - "+item.getPassword()+" - "+item.getEmail();
         textView.setText(message);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, ""+position+ message, Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         list_butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Button clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "Editing", Toast.LENGTH_SHORT).show();
+                User user = new User(item.getUsername(), item.getPassword(), item.getName(), item.getEmail());
+                Toast.makeText(context, ""+getItemId(position+1)+" / "+user.getUsername()+" / "+user.getPassword()+" / "+user.getName()+" / "+user.getEmail(), Toast.LENGTH_SHORT).show();
+
+              /* UserAdapter usi = item.get(position);
+                Intent intent = new Intent(activity, MainActivity.class);
+                intent.putExtra("id", item.getName());
+
+                activity.startActivity(intent);*/
             }
+
         });
-        
+
         return row;
+
+
     }
+
 }

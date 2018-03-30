@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/etIdFuel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:gravity="center_horizontal|center"
+        android:hint="@string/id"
+        android:inputType="number"
+        android:textColorHint="@android:color/holo_red_dark" />
+
+    <Button
+        android:id="@+id/btDelBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="25dp"
+        android:background="@android:color/holo_red_dark"
+        android:text="@string/delete"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="20sp" />
+</LinearLayout>

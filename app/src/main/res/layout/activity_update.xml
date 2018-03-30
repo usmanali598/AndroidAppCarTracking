@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.usman.proretro.app.UpdateFuel">
+
+    <EditText
+        android:id="@+id/etId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="@string/fuelId"
+        android:textColorHint="@color/colorPrimary"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/upUserPerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/userPerson"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/upAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/amount"
+        android:inputType="textPersonName|number" />
+
+    <EditText
+        android:id="@+id/upLitre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/litres"
+        android:inputType="textPersonName|number" />
+
+    <EditText
+        android:id="@+id/upDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/date_dd_mm_yyyy"
+        android:inputType="textPersonName|date" />
+
+    <Button
+        android:id="@+id/upFuel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_bg"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/Update" />
+
+</LinearLayout>

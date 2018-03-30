@@ -21,6 +21,11 @@
         </activity>
         <activity android:name=".app.MainActivity"></activity>
         <activity android:name=".app.FuelActivity"></activity>
+        <activity android:name=".app.EditActivity"></activity>
+        <activity android:name=".app.AddFuelActivity"></activity>
+        <activity android:name=".app.UpdateFuel"></activity>
+        <activity android:name=".app.DeleteFuelActivity"></activity>
+
     </application>
 
 </manifest>
