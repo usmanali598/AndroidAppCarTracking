@@ -47,6 +47,8 @@ public class FuelAdapter extends ArrayAdapter<Fuel> {
 
         final TextView textView = (TextView) row.findViewById(R.id.list_item_pagination_text);
         ImageButton list_butt = (ImageButton) row.findViewById(R.id.editing);
+        ImageButton delete_butt = (ImageButton) row.findViewById(R.id.deleting);
+
 
         final Fuel item = values.get(position);
 
@@ -57,6 +59,16 @@ public class FuelAdapter extends ArrayAdapter<Fuel> {
             public void onClick(View view) {
                 Toast.makeText(context, ""+ message, Toast.LENGTH_SHORT).show();
 
+            }
+        });
+
+        delete_butt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fuel fuel = new Fuel(item.getFuelId(), item.getUserperson(), item.getAmount(), item.getLitres(), item.getDate());
+                Intent intenti = new Intent(getContext(), DeleteFuelActivity.class);
+                intenti.putExtra("fuelId", item.getFuelId());
+                context.startActivity(intenti);
             }
         });
 

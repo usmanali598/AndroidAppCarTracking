@@ -16,11 +16,18 @@
         android:textSize="18sp"></TextView>
 
     <ImageButton
+        android:id="@+id/deleting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@mipmap/delete" />
+
+    <ImageButton
         android:id="@+id/editing"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:src="@drawable/edit"
+        android:src="@mipmap/edit"
          />
 
     <!--

@@ -38,6 +38,9 @@ public class DeleteFuelActivity extends AppCompatActivity {
 
         Intent in = getIntent();
 
+        String ids = String.valueOf(in.getLongExtra("fuelId", 0));
+
+
         deletefuelId = (EditText) findViewById(R.id.etIdFuel);
         deleteButton = (Button) findViewById(R.id.btDelBtn);
 
@@ -49,7 +52,7 @@ public class DeleteFuelActivity extends AppCompatActivity {
             }
         });
 
-
+        deletefuelId.setText(ids);
     }
 
     private void deleteNetworkRequest(Long id) {
