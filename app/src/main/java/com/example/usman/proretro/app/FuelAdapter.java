@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +46,7 @@ public class FuelAdapter extends ArrayAdapter<Fuel> {
         }
 
         final TextView textView = (TextView) row.findViewById(R.id.list_item_pagination_text);
-        Button list_butt = (Button) row.findViewById(R.id.editing);
+        ImageButton list_butt = (ImageButton) row.findViewById(R.id.editing);
 
         final Fuel item = values.get(position);
 
