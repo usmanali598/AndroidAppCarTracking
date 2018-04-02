@@ -71,12 +71,13 @@ public class DeleteFuelActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Fuel> call, Response<Fuel> response) {
                 Toast.makeText(DeleteFuelActivity.this, "Deleted :)", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(DeleteFuelActivity.this, FuelActivity.class));
             }
 
             @Override
             public void onFailure(Call<Fuel> call, Throwable t) {
                 Toast.makeText(DeleteFuelActivity.this, "Sorry :(", Toast.LENGTH_SHORT).show();
-
+                startActivity(new Intent(DeleteFuelActivity.this, FuelActivity.class));
             }
         });
     }

@@ -40,9 +40,9 @@ public class FuelActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.refresh);
         getSupportActionBar().setTitle("Fuel List");
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final ListView listView = (ListView) findViewById(R.id.fuel_list);
-
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -68,8 +68,6 @@ public class FuelActivity extends AppCompatActivity {
                 Toast.makeText(FuelActivity.this, "error :( "+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 
     @Override

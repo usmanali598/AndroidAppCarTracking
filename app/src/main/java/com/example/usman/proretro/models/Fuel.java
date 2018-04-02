@@ -56,7 +56,7 @@ public class Fuel {
     }
 
     public String getAmount() {
-        return amount;
+        return amount+"€";
     }
 
     public void setAmount(String amount) {
@@ -64,7 +64,7 @@ public class Fuel {
     }
 
     public String getLitres() {
-        return litres;
+        return litres+"Ltr";
     }
 
     public void setLitres(String litres) {

@@ -70,12 +70,12 @@ public class AddFuelActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Fuel>>() {
             @Override
             public void onResponse(Call<List<Fuel>> call, Response<List<Fuel>> response) {
-
+                startActivity(new Intent(AddFuelActivity.this, FuelActivity.class));
             }
 
             @Override
             public void onFailure(Call<List<Fuel>> call, Throwable t) {
-
+                startActivity(new Intent(AddFuelActivity.this, FuelActivity.class));
             }
         });
     }

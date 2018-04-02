@@ -82,11 +82,13 @@ public class UpdateFuel extends AppCompatActivity{
                     @Override
                     public void onResponse(Call<Fuel> call, Response<Fuel> response) {
                         Toast.makeText(UpdateFuel.this, "Yay", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(UpdateFuel.this, FuelActivity.class));
                     }
 
                     @Override
                     public void onFailure(Call<Fuel> call, Throwable t) {
-
+                        Toast.makeText(UpdateFuel.this, "See the list", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(UpdateFuel.this, FuelActivity.class));
                     }
                 });
             }

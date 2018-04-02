@@ -74,6 +74,16 @@
         android:text="@string/fuels" />
 
     <Button
+        android:id="@+id/btnAddFuel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@android:drawable/ic_input_add"
+        android:text="Add Fuel"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp" />
+
+    <Button
         android:id="@+id/btEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,13 +92,6 @@
         android:freezesText="true"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/edit" />
-
-    <Button
-        android:id="@+id/btnAddFuel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_bg"
-        android:text="AddFuel" />
 
     <Button
         android:id="@+id/deleteButton"
