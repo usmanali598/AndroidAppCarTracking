@@ -92,6 +92,7 @@ public class FirstActivity extends AppCompatActivity {
         });
     }
         private void sendNetworkRequest(User user) {
+        //Heroku server is being used so it was only for localhost
             Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.0.103:8080/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();

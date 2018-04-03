@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.pagination_list);
 
         butt = (Button)findViewById(R.id.btn);
-
+        //localhost was used for getting users
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.43.65:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

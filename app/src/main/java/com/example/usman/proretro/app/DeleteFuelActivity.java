@@ -40,7 +40,6 @@ public class DeleteFuelActivity extends AppCompatActivity {
 
         String ids = String.valueOf(in.getLongExtra("fuelId", 0));
 
-
         deletefuelId = (EditText) findViewById(R.id.etIdFuel);
         deleteButton = (Button) findViewById(R.id.btDelBtn);
 

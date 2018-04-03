@@ -40,15 +40,13 @@ public class UpdateFuel extends AppCompatActivity{
         Intent ina = getIntent();
         long getid = 0;
         String userP = null, amount = null, lit = null, date = null;
-
-
+        
         id = (EditText) findViewById(R.id.etId);
         updateUserPerson = (EditText) findViewById(R.id.upUserPerson);
         updateAmount = (EditText) findViewById(R.id.upAmount);
         updateLitres = (EditText) findViewById(R.id.upLitre);
         updateDate = (EditText) findViewById(R.id.upDate);
         
-
         String ids = String.valueOf(ina.getLongExtra("fuelId", 0));
         id.setText(ids);
         updateUserPerson.setText(ina.getStringExtra("userPerson"));
@@ -57,8 +55,7 @@ public class UpdateFuel extends AppCompatActivity{
         updateDate.setText(ina.getStringExtra("date"));
 
         Button updates = (Button) findViewById(R.id.upFuel);
-
-
+        
         Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -72,8 +69,7 @@ public class UpdateFuel extends AppCompatActivity{
                 String amt = updateAmount.getText().toString();
                 String ltr = updateLitres.getText().toString();
                 String dte = updateDate.getText().toString();
-
-
+                
                 Fuel fuel = new Fuel(person, amt, ltr, dte);
 
                 // Call<Fuel> call = apiService.editFuels(7, fuel);

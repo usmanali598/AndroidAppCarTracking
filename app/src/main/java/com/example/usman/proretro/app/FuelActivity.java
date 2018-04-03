@@ -15,9 +15,7 @@ import android.widget.Toast;
 import com.example.usman.proretro.R;
 import com.example.usman.proretro.interfaces.Api;
 import com.example.usman.proretro.models.Fuel;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
