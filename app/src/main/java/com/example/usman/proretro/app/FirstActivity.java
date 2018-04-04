@@ -1,6 +1,7 @@
 package com.example.usman.proretro.app;
 
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.usman.proretro.R;
 import com.example.usman.proretro.interfaces.Api;
+import com.example.usman.proretro.models.Location;
 import com.example.usman.proretro.models.User;
 
 import java.util.List;
@@ -39,7 +41,7 @@ public class FirstActivity extends AppCompatActivity {
         final EditText evail = (EditText) findViewById(R.id.email);
 
         Button editin = (Button) findViewById(R.id.btEdt);
-        Button addAdd = (Button) findViewById(R.id.add);
+       // Button addAdd = (Button) findViewById(R.id.add);
         Button userS = (Button) findViewById(R.id.user);
         Button addFu = (Button) findViewById(R.id.btnAddFuel);
         Button deleteBt = (Button) findViewById(R.id.deleteButton);
@@ -79,7 +81,64 @@ public class FirstActivity extends AppCompatActivity {
         });
 
 
+       /* @Override
+        public void onLocationChanged(Location location) {
 
+            lat = location.getLatitude();
+            lng = location.getLongitude();
+
+            if (mMap != null){
+                LatLng position = new LatLng(lat, lng);
+                Toast.makeText(this, "LocationChanged: "+location.getLatitude()+" - "+location.getLongitude(), Toast.LENGTH_SHORT).show();
+
+                // Showing the current location in Google Map
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(lat,lng)));
+
+                //double langi = location.getLongitude();
+
+                Location loca = new Location(lat, lng);
+                sendNetworkRequest(loca);
+
+                // Zoom in the Google Map
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(25));
+                if (routeOpts!=null) {
+                    LatLng newPoint = new LatLng(location.getLatitude(), location.getLongitude());
+                    List<LatLng> points = route.getPoints();
+                    points.add(newPoint);
+                    route.setPoints(points);
+                }
+            }*/
+
+      /*  private void sendNetworkRequest(Location location) {
+
+            Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+        Api apiService = retrofit.create(Api.class);
+
+        Call<List<Location>> call = apiService.addLocations(location);
+
+
+
+            Api api = retrofit.create(Api.class);
+            Call<List<Location>> call = api.addLocations(location);
+            call.enqueue(new Callback<List<Location>>() {
+                @Override
+                public void onResponse(Call<List<Location>> call, Response<List<Location>> response) {
+
+                }
+
+                @Override
+                public void onFailure(Call<List<Location>> call, Throwable t) {
+
+                }
+            }*/
+    }
+
+
+
+//-----------------------------------------------------------------
 
        /* addAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,4 +176,4 @@ public class FirstActivity extends AppCompatActivity {
 
 
         }*/
-}
+
