@@ -77,7 +77,11 @@ public class FirstActivity extends AppCompatActivity {
                 startActivity(new Intent(FirstActivity.this, AddFuelActivity.class));
             }
         });
-        addAdd.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+       /* addAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -87,11 +91,11 @@ public class FirstActivity extends AppCompatActivity {
                         nave.getText().toString(),
                         evail.getText().toString()
                 );
-                sendNetworkRequest(user);
+              //  sendNetworkRequest(user);
             }
-        });
+        });*/
     }
-        private void sendNetworkRequest(User user) {
+       /* private void sendNetworkRequest(User user) {
         //Heroku server is being used so it was only for localhost
             Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.0.103:8080/")
                     .addConverterFactory(GsonConverterFactory.create())
@@ -112,5 +116,5 @@ public class FirstActivity extends AppCompatActivity {
             });
 
 
-        }
+        }*/
 }

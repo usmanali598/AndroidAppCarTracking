@@ -31,6 +31,9 @@ public interface Api {
     @POST("fuels")
     Call<List<Fuel>> addFuels(@Body Fuel fuel);
 
+    @POST("fuels")
+    Call<List<Fuel>> addLocations(@Body Fuel fuel);
+
     @PUT("users/{id}/")
     Call<List<User>> editUsers(@Path("id")int userId, @Body User user);
 
