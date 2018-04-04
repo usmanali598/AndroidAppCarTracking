@@ -27,6 +27,7 @@ public class ServiceClass extends Service {
         return null;
     }
 
+
     @SuppressLint("MissingPermission")
     @Override
     public void onCreate() {

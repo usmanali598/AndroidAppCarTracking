@@ -95,6 +95,14 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
 
+        Button locat = (Button)findViewById(R.id.btLoc);
+        locat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FirstActivity.this, LocationActivity.class));
+            }
+        });
+
         Intent i = new Intent(getApplicationContext(), ServiceClass.class);
         startService(i);
     }
@@ -108,7 +116,6 @@ public class FirstActivity extends AppCompatActivity {
         }
         return false;
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -134,13 +141,11 @@ public class FirstActivity extends AppCompatActivity {
                     double langi = (double) intent.getExtras().get("lang");
 
                     Calendar calendar = Calendar.getInstance();
-                    SimpleDateFormat mdformat = new SimpleDateFormat("yyyy / MM / dd ");
-                    String strDate = "Current Date : " + mdformat.format(calendar.getTime());
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy / MM / dd ");
+                    String strDate = sdf.format(calendar.getTime());
 
                     Location loca = new Location("1",lat, langi, strDate);
                     sendNetworkRequest(loca);
-
-
 
                 }
             };
@@ -161,11 +166,9 @@ public class FirstActivity extends AppCompatActivity {
 
 
       //  Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.0.103:8080/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.43.65:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
-        Api apiService = retrofit.create(Api.class);
 
         Api api = retrofit.create(Api.class);
         Call<List<Location>> call = api.addLocations(location);
@@ -177,7 +180,7 @@ public class FirstActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Location>> call, Throwable t) {
-                Toast.makeText(FirstActivity.this, "check if it goes", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FirstActivity.this, "check if goes to db", Toast.LENGTH_SHORT).show();
             }
         });
 

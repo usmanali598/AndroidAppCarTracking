@@ -39,19 +39,21 @@ public class LocationAdapter extends ArrayAdapter<Location> {
         if (row == null) {
             LayoutInflater inflater =
                     (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(R.layout.list_item_pagination, parent, false);
+            row = inflater.inflate(R.layout.location_cutom_list, parent, false);
         }
 
-        final TextView textView = (TextView) row.findViewById(R.id.list_item_pagination_text);
-        ImageButton list_butt = (ImageButton) row.findViewById(R.id.editing);
-        ImageButton delete_butt = (ImageButton) row.findViewById(R.id.deleting);
+        final TextView tvLis = (TextView) row.findViewById(R.id.list_item_location_text);
+        ImageButton list_butt = (ImageButton) row.findViewById(R.id.editingLocation);
+        ImageButton delete_butt = (ImageButton) row.findViewById(R.id.deletingLocation);
 
 
         final Location item = values.get(position);
 
         final String message = item.getLocationId() + " - " + item.getDriverId() + " - " + item.getLat() + " - " + item.getLangi() + " - " + item.getDate();
-        textView.setText(message);
-        textView.setOnClickListener(new View.OnClickListener() {
+       // final String message = item.getLocationId() + " - " + item.getDriverId() + " - " + item.getDate();
+
+        tvLis.setText(message);
+        tvLis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "" + message, Toast.LENGTH_SHORT).show();
@@ -62,10 +64,11 @@ public class LocationAdapter extends ArrayAdapter<Location> {
         delete_butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Location location = new Location(item.getLocationId(), item.getDriverId(), item.getLat(), item.getLangi(), item.getDate());
+                Toast.makeText(context, "Del button", Toast.LENGTH_SHORT).show();
+                /*  Location location = new Location(item.getLocationId(), item.getDriverId(), item.getLat(), item.getLangi(), item.getDate());
                 Intent intenti = new Intent(getContext(), DeleteFuelActivity.class);
                 intenti.putExtra("locationId", item.getLocationId());
-                context.startActivity(intenti);
+                context.startActivity(intenti);*/
             }
         });
 
@@ -73,7 +76,9 @@ public class LocationAdapter extends ArrayAdapter<Location> {
             @Override
             public void onClick(View view) {
 
-                Location location = new Location(item.getLocationId(), item.getDriverId(), item.getLat(), item.getLangi(), item.getDate());
+                Toast.makeText(context, "Edit Button", Toast.LENGTH_SHORT).show();
+
+             /*   Location location = new Location(item.getLocationId(), item.getDriverId(), item.getLat(), item.getLangi(), item.getDate());
                 Toast.makeText(context, "" + location.getLocationId() + " / " + location.getDriverId() + " / " + location.getLat() + " / " + location.getLangi() + " / " + location.getDate(), Toast.LENGTH_SHORT).show();
 
                 Intent intenti = new Intent(getContext(), UpdateFuel.class);
@@ -83,7 +88,7 @@ public class LocationAdapter extends ArrayAdapter<Location> {
                 intenti.putExtra("langi", item.getLangi());
                 intenti.putExtra("date", item.getDate());
 
-                context.startActivity(intenti);
+                context.startActivity(intenti);*/
 
             }
 

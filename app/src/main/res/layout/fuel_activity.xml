@@ -15,6 +15,6 @@
         android:id="@+id/fuel_list"
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
-    </ListView>
+</ListView>
 
 </RelativeLayout>

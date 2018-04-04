@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.usman.proretro">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
 
     <application
@@ -25,6 +28,9 @@
         <activity android:name=".app.AddFuelActivity"></activity>
         <activity android:name=".app.UpdateFuel"></activity>
         <activity android:name=".app.DeleteFuelActivity"></activity>
+        <activity android:name=".app.LocationActivity"></activity>
+
+        <service android:name=".app.ServiceClass"/>
 
     </application>
 
