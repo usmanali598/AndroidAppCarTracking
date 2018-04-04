@@ -1,6 +1,7 @@
 package com.example.usman.proretro.interfaces;
 
 import com.example.usman.proretro.models.Fuel;
+import com.example.usman.proretro.models.Location;
 import com.example.usman.proretro.models.User;
 
 import java.util.List;
@@ -25,14 +26,17 @@ public interface Api {
     @GET("fuels")
     Call<List<Fuel>> getFuels();
 
+    @GET("locations")
+    Call<List<Location>> getLocations();
+
     @POST("users")
     Call<List<User>> addUsers(@Body User user);
 
     @POST("fuels")
     Call<List<Fuel>> addFuels(@Body Fuel fuel);
 
-    @POST("fuels")
-    Call<List<Fuel>> addLocations(@Body Fuel fuel);
+    @POST("locations")
+    Call<List<Location>> addLocations(@Body Location location);
 
     @PUT("users/{id}/")
     Call<List<User>> editUsers(@Path("id")int userId, @Body User user);
