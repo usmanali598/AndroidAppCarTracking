@@ -3,10 +3,9 @@
     package="com.example.usman.proretro">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -22,16 +21,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.MainActivity"></activity>
-        <activity android:name=".app.FuelActivity"></activity>
-        <activity android:name=".app.EditActivity"></activity>
-        <activity android:name=".app.AddFuelActivity"></activity>
-        <activity android:name=".app.UpdateFuel"></activity>
-        <activity android:name=".app.DeleteFuelActivity"></activity>
-        <activity android:name=".app.LocationActivity"></activity>
+        <activity android:name=".app.MainActivity" />
+        <activity android:name=".app.FuelActivity" />
+        <activity android:name=".app.EditActivity" />
+        <activity android:name=".app.AddFuelActivity" />
+        <activity android:name=".app.UpdateFuel" />
+        <activity android:name=".app.DeleteFuelActivity" />
+        <activity android:name=".app.LocationActivity" />
 
-        <service android:name=".app.ServiceClass"/>
+        <service android:name=".app.ServiceClass" />
 
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".app.MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
     </application>
 
 </manifest>
