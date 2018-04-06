@@ -102,6 +102,13 @@ public class FirstActivity extends AppCompatActivity {
                 startActivity(new Intent(FirstActivity.this, LocationActivity.class));
             }
         });
+        Button maps = (Button)findViewById(R.id.btMaps);
+        maps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FirstActivity.this, MapsActivity.class));
+            }
+        });
 
         Intent i = new Intent(getApplicationContext(), ServiceClass.class);
         startService(i);

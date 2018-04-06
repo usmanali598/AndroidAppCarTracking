@@ -62,7 +62,7 @@ public class ServiceClass extends Service {
         locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
 
         //noinspection MissingPermission
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,listener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,5,listener);
 
     }
 

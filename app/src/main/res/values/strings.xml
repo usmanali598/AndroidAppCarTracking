@@ -24,4 +24,5 @@
     <string name="refresh">refresh</string>
     <string name="location">Location</string>
     <string name="title_activity_maps">Map</string>
+    <string name="maps">Maps</string>
 </resources>
