@@ -110,6 +110,14 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
 
+        Button tes = (Button)findViewById(R.id.btnTest);
+        tes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FirstActivity.this, TestActivity.class));
+            }
+        });
+
         Intent i = new Intent(getApplicationContext(), ServiceClass.class);
         startService(i);
     }
