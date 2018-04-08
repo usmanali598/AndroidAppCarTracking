@@ -60,11 +60,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-
       String respo = getIntent().getStringExtra("respo");
-
-      //Helsinki lat and lng 60.192059, 24.945831
-
 
     }
 
@@ -88,7 +84,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //                List<Location> Latlng = (List<Location>) getIntent().getExtras().get("lat");
               List<Location> locLis = response.body();
 
-
                 lat = getIntent().getDoubleExtra("lat", 0);
                 lng = getIntent().getDoubleExtra("langi", 0);
 
@@ -98,15 +93,65 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 route = mMap.addPolyline(routeOpts);
                 route.setVisible(drawTrack);*/
 
+                //Put in a method with params (id,  colour) or date as well;
+                //If (Id.equalsIgnoreCase('id') && date.equalsIgnoreCase('date'))
+
+                /*
+                response.body().get(1).getDriverId();
+                response.body().get(1).getDate();
+
                 List<LatLng> latlngs = new ArrayList<>();
+                List<Location> polyTry = new ArrayList<>();
                 for(int i=0; i<locLis.size(); i++){
-                    latlngs.add(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()));
+
+                   driverId = getIntent().getStringExtra("driverId");
+                   double latu = locLis.get(i).getLat();
+                   double langu = locLis.get(i).getLangi();
+                   date = getIntent().getStringExtra("date");
+
+                   Location loc = new Location(driverId, latu, langu, date);
+                    polyTry.add(loc);
+                   latlngs.add(new LatLng(latu, langu));
                 }
                 PolylineOptions rectOptions = new PolylineOptions().addAll(latlngs);
 
-                rectOptions.color(Color.GREEN).width(5)
+                rectOptions.color(Color.BLUE).width(5)
                         .geodesic(true);
-                mMap.addPolyline(rectOptions);
+                mMap.addPolyline(rectOptions);*/
+
+
+                filterPolyLi("1",  "08/04/2018", locLis);
+                filterPolyLi("2",  "09/04/2018", locLis);
+
+
+               /* List<LatLng> latlngs = new ArrayList<>();
+                for(int i=0; i<locLis.size(); i++){
+                    if ((locLis.get(i).getDriverId().equalsIgnoreCase("1")) && (locLis.get(i).getDate().equalsIgnoreCase("08/04/2018")) ) {
+                        latlngs.add(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()));
+                    }
+                }
+                PolylineOptions rectOptions = new PolylineOptions().addAll(latlngs);
+
+                rectOptions.color(Color.WHITE).width(5)
+                        .geodesic(true);
+                mMap.addPolyline(rectOptions);*/
+
+
+                   //correct one
+              /*  List<LatLng> latlngs = new ArrayList<>();
+                for(int i=0; i<locLis.size(); i++){
+                   latlngs.add(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()));
+                }
+                PolylineOptions rectOptions = new PolylineOptions().addAll(latlngs);
+
+                rectOptions.color(Color.BLUE).width(5)
+                        .geodesic(true);
+                mMap.addPolyline(rectOptions);*/
+
+
+                //Randomly select color for different Ids
+                //get Lat Lang from different dates
+                //today date, yesterday is to0day-1;
            /*     for(int i=0;i<locLis.size();i++) {
                     Polyline line = mMap.addPolyline(new PolylineOptions()
                             .add(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()))
@@ -207,7 +252,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng Helsinki = new LatLng(60.172503, 24.939974);
         mMap.addMarker(new MarkerOptions().position(Helsinki).title("Marker in Helsinki"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(Helsinki));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsinki, 8));
     }
 
+    public void filterPolyLi(String id, String date, List<Location> locLis){
+
+            List<LatLng> latlngs = new ArrayList<>();
+            for(int i=0; i<locLis.size(); i++){
+                if ((locLis.get(i).getDriverId().equalsIgnoreCase(id)) && (locLis.get(i).getDate().equalsIgnoreCase(date)) ) {
+                    latlngs.add(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()));
+                }
+            }
+            PolylineOptions rectOptions = new PolylineOptions().addAll(latlngs);
+
+            rectOptions.color(Color.MAGENTA).width(5)
+                    .geodesic(true);
+            mMap.addPolyline(rectOptions);
+        }
 
 }
