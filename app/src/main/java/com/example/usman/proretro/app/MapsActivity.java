@@ -120,8 +120,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.addPolyline(rectOptions);*/
 
 
-                filterPolyLi("1",  "08/04/2018", locLis);
-                filterPolyLi("2",  "09/04/2018", locLis);
+                filterPolyLi("1",  "08/04/2018", locLis, R.color.colorAccent);
+                filterPolyLi("2",  "09/04/2018", locLis, R.color.colorPrimaryDark);
 
 
                /* List<LatLng> latlngs = new ArrayList<>();
@@ -255,7 +255,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsinki, 8));
     }
 
-    public void filterPolyLi(String id, String date, List<Location> locLis){
+    public void filterPolyLi(String id, String date, List<Location> locLis, int colr){
 
             List<LatLng> latlngs = new ArrayList<>();
             for(int i=0; i<locLis.size(); i++){
@@ -265,7 +265,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             PolylineOptions rectOptions = new PolylineOptions().addAll(latlngs);
 
-            rectOptions.color(Color.MAGENTA).width(5)
+            rectOptions.color(colr).width(5)
                     .geodesic(true);
             mMap.addPolyline(rectOptions);
         }
