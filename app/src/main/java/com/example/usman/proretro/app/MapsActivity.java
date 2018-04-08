@@ -6,6 +6,7 @@ import android.nfc.Tag;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -37,6 +38,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static java.security.AccessController.getContext;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -120,8 +123,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.addPolyline(rectOptions);*/
 
 
-                filterPolyLi("1",  "08/04/2018", locLis, R.color.colorAccent);
-                filterPolyLi("2",  "09/04/2018", locLis, R.color.colorPrimaryDark);
+                filterPolyLi("1",  "08/04/2018", locLis, getResources().getColor(R.color.colorAccent));
+                filterPolyLi("2",  "09/04/2018", locLis, getResources().getColor(R.color.colorPrimaryDark));
 
 
                /* List<LatLng> latlngs = new ArrayList<>();
