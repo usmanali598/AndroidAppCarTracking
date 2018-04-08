@@ -50,16 +50,17 @@ public class LocationAdapter extends ArrayAdapter<Location> {
 
         final Location item = values.get(position);
 
-        final String message = item.getLocationId() + " - " + item.getDriverId() + " - " + item.getLat() + " - " + item.getLangi() + " - " + item.getDate();
-       // final String message = item.getLocationId() + " - " + item.getDriverId() + " - " + item.getDate();
+        //final String message = item.getLocationId() + " - " + item.getDriverId() + " - " + item.getLat() + " - " + item.getLangi() + " - " + item.getDate();
+        final String message = item.getLocationId() + " - " + item.getLat() + " - " + item.getLangi();
 
         tvLis.setText(message);
-        Intent intenti = new Intent(getContext(), MapsActivity.class);
-        intenti.putExtra("respo", message);
-        context.startActivity(intenti);
+        Toast.makeText(context, ""+message, Toast.LENGTH_SHORT).show();
+      /*  Intent intenti = new Intent(getContext(), MapsActivity.class);
+
+        context.startActivity(intenti);*/
 
         Location location = new Location(item.getLocationId(), item.getDriverId(), item.getLat(), item.getLangi(), item.getDate());
-        Toast.makeText(context, "" + location.getLocationId() + " / " + location.getDriverId() + " / " + location.getLat() + " / " + location.getLangi() + " / " + location.getDate(), Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(context, "" + location.getLocationId() + " / " + location.getDriverId() + " / " + location.getLat() + " / " + location.getLangi() + " / " + location.getDate(), Toast.LENGTH_SHORT).show();
 
        /* Intent intent = new Intent(getContext(), TestActivity.class);
         ArrayList<Double> listDouble = new ArrayList<Double>();
@@ -103,6 +104,7 @@ public class LocationAdapter extends ArrayAdapter<Location> {
         intenti.putExtra("arraylist", listDouble);
         context.startActivity(intenti);*/
                // intenti.putExtra("coordinates",location.getLat()+" "+location.getLangi());
+
                 intenti.putExtra("locationId", item.getLocationId());
                 intenti.putExtra("driverId", item.getDriverId());
                 intenti.putExtra("lat", item.getLat());

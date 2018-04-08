@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -83,20 +84,54 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         call.enqueue(new Callback<List<Location>>() {
             @Override
             public void onResponse(Call<List<Location>> call, Response<List<Location>> response) {
-                Toast.makeText(MapsActivity.this, "Fetching Location", Toast.LENGTH_SHORT).show();
 
+//                List<Location> Latlng = (List<Location>) getIntent().getExtras().get("lat");
               List<Location> locLis = response.body();
 
-               // Toast.makeText(MapsActivity.this, ""+locLis.toString(), Toast.LENGTH_SHORT).show();
 
-               // Log.d("response : ", String.valueOf(response.body()));
+                lat = getIntent().getDoubleExtra("lat", 0);
+                lng = getIntent().getDoubleExtra("langi", 0);
 
-                //Toast.makeText(LocationActivity.this, "Size : "+locLis.size(), Toast.LENGTH_SHORT).show();
+             /*   routeOpts = new PolylineOptions().color(Color.BLUE)
+                        .width(3)
+                        .geodesic(true);
+                route = mMap.addPolyline(routeOpts);
+                route.setVisible(drawTrack);*/
 
-                LocationAdapter lca = new LocationAdapter(MapsActivity.this, locLis);
+                List<LatLng> latlngs = new ArrayList<>();
+                for(int i=0; i<locLis.size(); i++){
+                    latlngs.add(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()));
+                }
+                PolylineOptions rectOptions = new PolylineOptions().addAll(latlngs);
+
+                rectOptions.color(Color.GREEN).width(5)
+                        .geodesic(true);
+                mMap.addPolyline(rectOptions);
+           /*     for(int i=0;i<locLis.size();i++) {
+                    Polyline line = mMap.addPolyline(new PolylineOptions()
+                            .add(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()))
+                            .width(9)
+                            .color(Color.RED));
+                }*/
+
+             /*   Polyline line = mMap.addPolyline(new PolylineOptions()
+                        .add(new LatLng(locLis.get(0).getLat(), locLis.get(0).getLangi())
+                                , new LatLng(locLis.get(1).getLat(), locLis.get(1).getLangi())
+                                , new LatLng(locLis.get(2).getLat(), locLis.get(2).getLangi())
+                                ,new LatLng(locLis.get(3).getLat(), locLis.get(3).getLangi()))
+                        .width(5)
+                        .color(Color.RED));*/
 
 
-                Log.d("onResponse: ", String.valueOf(lca));
+
+              /*  for(int i=0;i<=locLis.size();i=i+1) {
+                    //Toast.makeText(MapsActivity.this, "" + lat + "- " + lng + " - ", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MapsActivity.this, "again"+locLis.listIterator().hasNext(), Toast.LENGTH_SHORT).show(); //True
+                 Toast.makeText(MapsActivity.this, ""+locLis.get(0).getLat()+" + "+locLis.get(0).getLangi(), Toast.LENGTH_LONG).show();
+                 Toast.makeText(MapsActivity.this, ""+locLis.get(1).getLat()+" + "+locLis.get(1).getLangi(), Toast.LENGTH_LONG).show();
+                 Toast.makeText(MapsActivity.this, ""+locLis.get(2).getLat()+" + "+locLis.get(2).getLangi(), Toast.LENGTH_LONG).show();
+                 Toast.makeText(MapsActivity.this, ""+locLis.get(3).getLat()+" + "+locLis.get(3).getLangi(), Toast.LENGTH_LONG).show();
+
                 //setAdapter(new LocationAdapter(MapsActivity.this, locLis));
               routeOpts = new PolylineOptions().color(Color.BLUE)
                         .width(3)
@@ -104,21 +139,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 route = mMap.addPolyline(routeOpts);
                 route.setVisible(drawTrack);
 
-                        for(int i=1;i<=locLis.size();i++){
-                            lat = getIntent().getDoubleExtra("lat", 0.00);
-                            lng = getIntent().getDoubleExtra("langi", 0.00);
+                       /* for(int i=1;i<=locLis.size();i++){
+                            lat = getIntent().getDoubleExtra("lat", 0);
+                            lng = getIntent().getDoubleExtra("langi", 0);
                             Log.d( "onResponse1: ", String.valueOf(lat+lng));
                            // Toast.makeText(MapsActivity.this, ""+lat+lng, Toast.LENGTH_SHORT).show();
-
-
-                        }
-
-                mMap.addPolyline(new PolylineOptions().geodesic(true)
-                        .add(new LatLng(lat, lng))
-                        .clickable(true)
-                        .width(10)
-                        .color(Color.GREEN));
-            }
+                        }*/
+        }
 
             @Override
             public void onFailure(Call<List<Location>> call, Throwable t) {
@@ -126,10 +153,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-        Polyline line = mMap.addPolyline(new PolylineOptions()
-                .add(new LatLng(51.5, -0.1), new LatLng(40.7, -74.0), new LatLng(60.192059, 24.945831) )
-                .width(5)
-                .color(Color.RED));
+
         //String ids = String.valueOf(getIntent().getLongExtra("locationId", 0));
        /* locationId = getIntent().getLongExtra("locationId", 0);
         driverId = getIntent().getStringExtra("driverId");
@@ -167,24 +191,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // LatLng position = new LatLng(lat, lng);
 
-        routeOpts = new PolylineOptions().color(Color.BLUE)
-                .width(3)
-                .geodesic(true);
-        route = mMap.addPolyline(routeOpts);
-        route.setVisible(drawTrack);
-
-
-     if (routeOpts!=null) {
-            lat = getIntent().getDoubleExtra("lat", 0.00);
-            lng = getIntent().getDoubleExtra("langi", 0.00);
-
-            LatLng newPoint = new LatLng(lat, lng);
-            List<LatLng> points = route.getPoints();
-            points.add(newPoint);
-            route.setPoints(points);
-        }
-
-
         mMap.getCameraPosition();
 
        /*     mMap.addMarker(new MarkerOptions()
@@ -198,9 +204,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 17));
 */
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(60.172503, 24.939974);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng Helsinki = new LatLng(60.172503, 24.939974);
+        mMap.addMarker(new MarkerOptions().position(Helsinki).title("Marker in Helsinki"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(Helsinki));
     }
 
 
