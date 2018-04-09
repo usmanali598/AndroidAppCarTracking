@@ -52,7 +52,7 @@ public class FuelAdapter extends ArrayAdapter<Fuel> {
 
         final Fuel item = values.get(position);
 
-        final String message = item.getFuelId() +" - "+item.getUserperson()+" - "+item.getAmount()+" - "+item.getLitres()+" - "+item.getDate();
+        final String message = item.getFuelId() +" - "+item.getUserperson()+" - "+item.getAmount()+"€"+" - "+item.getLitres()+"Ltr"+" - "+item.getDate();
         textView.setText(message);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override

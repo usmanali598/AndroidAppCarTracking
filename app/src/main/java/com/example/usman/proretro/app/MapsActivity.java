@@ -253,17 +253,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 */
         // Add a marker in Sydney and move the camera
         LatLng Helsinki = new LatLng(60.172503, 24.939974);
-        mMap.addMarker(new MarkerOptions().position(Helsinki).title("Marker in Helsinki"));
+        //mMap.addMarker(new MarkerOptions().position(Helsinki).title("Marker in Helsinki"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(Helsinki));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsinki, 8));
     }
 
     public void filterPolyLi(String id, String date, List<Location> locLis, int colr){
 
+        LatLng starting = new LatLng(locLis.get(0).getLat(), locLis.get(0).getLangi());
+
+        int end = locLis.size()-1;
+
+        LatLng ending = new LatLng(locLis.get(end).getLat(), locLis.get(end).getLangi());
+
             List<LatLng> latlngs = new ArrayList<>();
+
             for(int i=0; i<locLis.size(); i++){
                 if ((locLis.get(i).getDriverId().equalsIgnoreCase(id)) && (locLis.get(i).getDate().equalsIgnoreCase(date)) ) {
                     latlngs.add(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()));
+                    mMap.addMarker(new MarkerOptions().position(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()))
+                            .title("Marker of "+id)
+                            .snippet(""+date)
+                    );
                 }
             }
             PolylineOptions rectOptions = new PolylineOptions().addAll(latlngs);
@@ -271,6 +282,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             rectOptions.color(colr).width(5)
                     .geodesic(true);
             mMap.addPolyline(rectOptions);
+       // mMap.addMarker(new MarkerOptions().position(starting).title("Marker in beginnig"));
+        //mMap.addMarker(new MarkerOptions().position(ending).title("Marker in ending"));
         }
 
 }
