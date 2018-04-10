@@ -2,7 +2,6 @@ package com.example.usman.proretro.interfaces;
 
 import com.example.usman.proretro.models.Fuel;
 import com.example.usman.proretro.models.Location;
-import com.example.usman.proretro.models.User;
 
 import java.util.List;
 

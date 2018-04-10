@@ -93,45 +93,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 lat = getIntent().getDoubleExtra("lat", 0);
                 lng = getIntent().getDoubleExtra("langi", 0);
 
-
-            Toast.makeText(MapsActivity.this, ""+locLis.get(70).getDate()+locLis.get(70).getDriverId(), Toast.LENGTH_SHORT).show();
-                LatLng Helsini = new LatLng(locLis.get(5).getLat(), locLis.get(5).getLangi());
-
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsini, 15));
-
-
-
-             /*   routeOpts = new PolylineOptions().color(Color.BLUE)
-                        .width(3)
-                        .geodesic(true);
-                route = mMap.addPolyline(routeOpts);
-                route.setVisible(drawTrack);*/
-
-                //Put in a method with params (id,  colour) or date as well;
-                //If (Id.equalsIgnoreCase('id') && date.equalsIgnoreCase('date'))
-
-                /*
-                response.body().get(1).getDriverId();
-                response.body().get(1).getDate();
-
-                List<LatLng> latlngs = new ArrayList<>();
-                List<Location> polyTry = new ArrayList<>();
-                for(int i=0; i<locLis.size(); i++){
-
-                   driverId = getIntent().getStringExtra("driverId");
-                   double latu = locLis.get(i).getLat();
-                   double langu = locLis.get(i).getLangi();
-                   date = getIntent().getStringExtra("date");
-
-                   Location loc = new Location(driverId, latu, langu, date);
-                    polyTry.add(loc);
-                   latlngs.add(new LatLng(latu, langu));
+                if (locLis.size() > 0) {
+                    LatLng Helsini = new LatLng(locLis.get(1).getLat(), locLis.get(1).getLangi());
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsini, 15));
+                } else {
+                    LatLng Helsini = new LatLng(60.172503, 24.939974);
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsini, 15));
                 }
-                PolylineOptions rectOptions = new PolylineOptions().addAll(latlngs);
-
-                rectOptions.color(Color.BLUE).width(5)
-                        .geodesic(true);
-                mMap.addPolyline(rectOptions);*/
 
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ");
@@ -143,76 +111,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 //filterPolyLi("2",  "09/04/2018", locLis, getResources().getColor(R.color.colorPrimaryDark));
                // filterPolyLi("1",  "2018 / 04 / 10 ", locLis, getResources().getColor(R.color.colorPrimaryDark));
 
-                //"dd / MM / yyyy "
-                // filterPolyLi("1",  "2018/04/10", locLis, getResources().getColor(R.color.colorPrimary));
 
-
-               /* List<LatLng> latlngs = new ArrayList<>();
-                for(int i=0; i<locLis.size(); i++){
-                    if ((locLis.get(i).getDriverId().equalsIgnoreCase("1")) && (locLis.get(i).getDate().equalsIgnoreCase("08/04/2018")) ) {
-                        latlngs.add(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()));
-                    }
-                }
-                PolylineOptions rectOptions = new PolylineOptions().addAll(latlngs);
-
-                rectOptions.color(Color.WHITE).width(5)
-                        .geodesic(true);
-                mMap.addPolyline(rectOptions);*/
-
-
-                   //correct one
-              /*  List<LatLng> latlngs = new ArrayList<>();
-                for(int i=0; i<locLis.size(); i++){
-                   latlngs.add(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()));
-                }
-                PolylineOptions rectOptions = new PolylineOptions().addAll(latlngs);
-
-                rectOptions.color(Color.BLUE).width(5)
-                        .geodesic(true);
-                mMap.addPolyline(rectOptions);*/
-
-
-                //Randomly select color for different Ids
-                //get Lat Lang from different dates
-                //today date, yesterday is to0day-1;
-           /*     for(int i=0;i<locLis.size();i++) {
-                    Polyline line = mMap.addPolyline(new PolylineOptions()
-                            .add(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()))
-                            .width(9)
-                            .color(Color.RED));
-                }*/
-
-             /*   Polyline line = mMap.addPolyline(new PolylineOptions()
-                        .add(new LatLng(locLis.get(0).getLat(), locLis.get(0).getLangi())
-                                , new LatLng(locLis.get(1).getLat(), locLis.get(1).getLangi())
-                                , new LatLng(locLis.get(2).getLat(), locLis.get(2).getLangi())
-                                ,new LatLng(locLis.get(3).getLat(), locLis.get(3).getLangi()))
-                        .width(5)
-                        .color(Color.RED));*/
-
-
-
-              /*  for(int i=0;i<=locLis.size();i=i+1) {
-                    //Toast.makeText(MapsActivity.this, "" + lat + "- " + lng + " - ", Toast.LENGTH_SHORT).show();
-                    //Toast.makeText(MapsActivity.this, "again"+locLis.listIterator().hasNext(), Toast.LENGTH_SHORT).show(); //True
-                 Toast.makeText(MapsActivity.this, ""+locLis.get(0).getLat()+" + "+locLis.get(0).getLangi(), Toast.LENGTH_LONG).show();
-                 Toast.makeText(MapsActivity.this, ""+locLis.get(1).getLat()+" + "+locLis.get(1).getLangi(), Toast.LENGTH_LONG).show();
-                 Toast.makeText(MapsActivity.this, ""+locLis.get(2).getLat()+" + "+locLis.get(2).getLangi(), Toast.LENGTH_LONG).show();
-                 Toast.makeText(MapsActivity.this, ""+locLis.get(3).getLat()+" + "+locLis.get(3).getLangi(), Toast.LENGTH_LONG).show();
-
-                //setAdapter(new LocationAdapter(MapsActivity.this, locLis));
-              routeOpts = new PolylineOptions().color(Color.BLUE)
-                        .width(3)
-                        .geodesic(true);
-                route = mMap.addPolyline(routeOpts);
-                route.setVisible(drawTrack);
-
-                       /* for(int i=1;i<=locLis.size();i++){
-                            lat = getIntent().getDoubleExtra("lat", 0);
-                            lng = getIntent().getDoubleExtra("langi", 0);
-                            Log.d( "onResponse1: ", String.valueOf(lat+lng));
-                           // Toast.makeText(MapsActivity.this, ""+lat+lng, Toast.LENGTH_SHORT).show();
-                        }*/
         }
 
             @Override

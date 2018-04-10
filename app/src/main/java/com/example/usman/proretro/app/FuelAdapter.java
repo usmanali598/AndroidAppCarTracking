@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 import com.example.usman.proretro.R;
 
 import com.example.usman.proretro.models.Fuel;
-import com.example.usman.proretro.models.User;
 
 import java.util.List;
 
