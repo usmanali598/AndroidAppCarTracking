@@ -62,18 +62,6 @@ public class LocationAdapter extends ArrayAdapter<Location> {
         Location location = new Location(item.getLocationId(), item.getDriverId(), item.getLat(), item.getLangi(), item.getDate());
       //  Toast.makeText(context, "" + location.getLocationId() + " / " + location.getDriverId() + " / " + location.getLat() + " / " + location.getLangi() + " / " + location.getDate(), Toast.LENGTH_SHORT).show();
 
-       /* Intent intent = new Intent(getContext(), TestActivity.class);
-        ArrayList<Double> listDouble = new ArrayList<Double>();
-        listDouble.add(item.getLat());
-        listDouble.add(item.getLangi());
-        intent.putExtra("arraylist", listDouble);
-        context.startActivity(intent);*/
-
-
-
-
-
-
         tvLis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

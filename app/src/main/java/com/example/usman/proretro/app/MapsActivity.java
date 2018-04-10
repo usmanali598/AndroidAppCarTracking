@@ -260,11 +260,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void filterPolyLi(String id, String date, List<Location> locLis, int colr){
 
-        LatLng starting = new LatLng(locLis.get(0).getLat(), locLis.get(0).getLangi());
+        /*LatLng starting = new LatLng(locLis.get(0).getLat(), locLis.get(0).getLangi());
 
         int end = locLis.size()-1;
 
-        LatLng ending = new LatLng(locLis.get(end).getLat(), locLis.get(end).getLangi());
+        LatLng ending = new LatLng(locLis.get(end).getLat(), locLis.get(end).getLangi());*/
 
             List<LatLng> latlngs = new ArrayList<>();
 

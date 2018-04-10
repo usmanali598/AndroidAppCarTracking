@@ -70,11 +70,7 @@ public class LocationActivity extends AppCompatActivity {
                     double lng = getIntent().getDoubleExtra("langi", 0.00);
                     Log.d( "onResponse1: ", String.valueOf(lat+" - "+lng));
                     // Toast.makeText(MapsActivity.this, ""+lat+lng, Toast.LENGTH_SHORT).show();
-
-
                 }*/
-
-
             }
 
             @Override
