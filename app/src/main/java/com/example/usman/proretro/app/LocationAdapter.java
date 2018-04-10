@@ -54,13 +54,12 @@ public class LocationAdapter extends ArrayAdapter<Location> {
         final String message = item.getLocationId() + " - " + item.getLat() + " - " + item.getLangi();
 
         tvLis.setText(message);
-        Toast.makeText(context, ""+message, Toast.LENGTH_SHORT).show();
+
       /*  Intent intenti = new Intent(getContext(), MapsActivity.class);
 
         context.startActivity(intenti);*/
 
         Location location = new Location(item.getLocationId(), item.getDriverId(), item.getLat(), item.getLangi(), item.getDate());
-      //  Toast.makeText(context, "" + location.getLocationId() + " / " + location.getDriverId() + " / " + location.getLat() + " / " + location.getLangi() + " / " + location.getDate(), Toast.LENGTH_SHORT).show();
 
         tvLis.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,10 +73,7 @@ public class LocationAdapter extends ArrayAdapter<Location> {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "Del button", Toast.LENGTH_SHORT).show();
-                /*  Location location = new Location(item.getLocationId(), item.getDriverId(), item.getLat(), item.getLangi(), item.getDate());
-                Intent intenti = new Intent(getContext(), DeleteFuelActivity.class);
-                intenti.putExtra("locationId", item.getLocationId());
-                context.startActivity(intenti);*/
+
             }
         });
 
@@ -86,13 +82,6 @@ public class LocationAdapter extends ArrayAdapter<Location> {
             public void onClick(View view) {
                 Toast.makeText(context, "Edit Button", Toast.LENGTH_SHORT).show();
                 Intent intenti = new Intent(getContext(), MapsActivity.class);
-       /* ArrayList<Double> listDouble = new ArrayList<Double>();
-        listDouble.add(item.getLat());
-        listDouble.add(item.getLangi());
-        intenti.putExtra("arraylist", listDouble);
-        context.startActivity(intenti);*/
-               // intenti.putExtra("coordinates",location.getLat()+" "+location.getLangi());
-
                 intenti.putExtra("locationId", item.getLocationId());
                 intenti.putExtra("driverId", item.getDriverId());
                 intenti.putExtra("lat", item.getLat());

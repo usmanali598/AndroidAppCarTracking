@@ -5,69 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     tools:context="com.example.usman.proretro.app.FirstActivity">
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:hint="@string/username" />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:hint="@string/password"
-        android:inputType="textWebPassword" />
-
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:hint="@string/name" />
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress" />
-
-    <Button
-        android:id="@+id/add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@android:color/holo_orange_dark"
-        android:freezesText="true"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/add" />
-
-    <Button
-        android:id="@+id/user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@android:color/holo_green_dark"
-        android:freezesText="true"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/users" />
-</LinearLayout>
     <Button
         android:id="@+id/fuel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="25dp"
         android:background="@android:color/holo_purple"
         android:freezesText="true"
         android:gravity="center_vertical|center_horizontal"
@@ -117,26 +60,13 @@
         android:text="@string/location"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <Button
-        android:id="@+id/btMaps"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/button_bg"
-        android:textSize="20sp"
-        android:text="@string/maps" />
-
         <Button
-            android:id="@+id/btnTest"
+            android:id="@+id/btMaps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="4dp"
-            android:text="Testing" />
-    </LinearLayout>
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_bg"
+            android:text="@string/maps"
+            android:textSize="20sp" />
 
 </LinearLayout>

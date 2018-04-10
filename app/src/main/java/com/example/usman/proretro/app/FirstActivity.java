@@ -137,7 +137,8 @@ public class FirstActivity extends AppCompatActivity {
                     double langi = (double) intent.getExtras().get("lang");
 
                     Calendar calendar = Calendar.getInstance();
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy / MM / dd ");
+                   // SimpleDateFormat sdf = new SimpleDateFormat("yyyy / MM / dd ");
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd / MM / yyyy ");
                     String strDate = sdf.format(calendar.getTime());
 
                     Location loca = new Location("1",lat, langi, strDate);

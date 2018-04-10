@@ -24,7 +24,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".app.FuelActivity" />
-        <activity android:name=".app.EditActivity" />
         <activity android:name=".app.AddFuelActivity" />
         <activity android:name=".app.UpdateFuel" />
         <activity android:name=".app.DeleteFuelActivity" />

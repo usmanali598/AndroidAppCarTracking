@@ -59,18 +59,8 @@ public class LocationActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Location>>() {
             @Override
             public void onResponse(Call<List<Location>> call, Response<List<Location>> response) {
-               // Toast.makeText(LocationActivity.this, "Fetching Location", Toast.LENGTH_SHORT).show();
-
                 List<Location> locLis = response.body();
-                Toast.makeText(LocationActivity.this, "Size : "+locLis.size(), Toast.LENGTH_SHORT).show();
-               // Toast.makeText(LocationActivity.this, ""+locLis.get(0), Toast.LENGTH_SHORT).show();
                 listView.setAdapter(new LocationAdapter(LocationActivity.this, locLis));
-              /*  for(int i=1;i<=locLis.size();i++){
-                   double lat = getIntent().getDoubleExtra("lat", 0.00);
-                    double lng = getIntent().getDoubleExtra("langi", 0.00);
-                    Log.d( "onResponse1: ", String.valueOf(lat+" - "+lng));
-                    // Toast.makeText(MapsActivity.this, ""+lat+lng, Toast.LENGTH_SHORT).show();
-                }*/
             }
 
             @Override
@@ -89,9 +79,6 @@ public class LocationActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        //String title = (String)item.getTitle();
-        //Toast.makeText(this, "title is: "+title, Toast.LENGTH_SHORT).show();
 
         switch (item.getItemId()){
             case R.id.refresh:

@@ -87,8 +87,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //                List<Location> Latlng = (List<Location>) getIntent().getExtras().get("lat");
               List<Location> locLis = response.body();
 
+                Toast.makeText(MapsActivity.this, ""+locLis.size(), Toast.LENGTH_SHORT).show();
                 lat = getIntent().getDoubleExtra("lat", 0);
                 lng = getIntent().getDoubleExtra("langi", 0);
+
+
+            Toast.makeText(MapsActivity.this, ""+locLis.get(70).getDate()+locLis.get(70).getDriverId(), Toast.LENGTH_SHORT).show();
+
+            /*    mMap.addPolyline(new PolylineOptions().geodesic(true)
+
+                        .add(new LatLng(locLis.get(70).getLat(), locLis.get(70).getLangi()))
+                        .add(new LatLng(locLis.get(71).getLat(), locLis.get(71).getLangi()))
+                        .add(new LatLng(locLis.get(72).getLat(), locLis.get(72).getLangi()))
+                        .add(new LatLng(locLis.get(73).getLat(), locLis.get(73).getLangi()))
+                        .add(new LatLng(locLis.get(74).getLat(), locLis.get(74).getLangi()))
+                        .add(new LatLng(locLis.get(75).getLat(), locLis.get(75).getLangi()))
+                        .add(new LatLng(locLis.get(76).getLat(), locLis.get(76).getLangi()))
+                        .add(new LatLng(locLis.get(77).getLat(), locLis.get(77).getLangi()))
+                        .add(new LatLng(locLis.get(78).getLat(), locLis.get(78).getLangi()))
+                        .add(new LatLng(locLis.get(79).getLat(), locLis.get(79).getLangi()))
+
+                        .clickable(true)
+                        .width(7)
+                        .color(Color.GREEN)
+                );*/
+
 
              /*   routeOpts = new PolylineOptions().color(Color.BLUE)
                         .width(3)
@@ -123,8 +146,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.addPolyline(rectOptions);*/
 
 
-                filterPolyLi("1",  "08/04/2018", locLis, getResources().getColor(R.color.colorAccent));
-                filterPolyLi("2",  "09/04/2018", locLis, getResources().getColor(R.color.colorPrimaryDark));
+                //filterPolyLi("1",  "08/04/2018", locLis, getResources().getColor(R.color.colorAccent));
+                //filterPolyLi("2",  "09/04/2018", locLis, getResources().getColor(R.color.colorPrimaryDark));
+                filterPolyLi("1",  "2018 / 04 / 10 ", locLis, getResources().getColor(R.color.colorPrimaryDark));
+
+                //"dd / MM / yyyy "
+                // filterPolyLi("1",  "2018/04/10", locLis, getResources().getColor(R.color.colorPrimary));
 
 
                /* List<LatLng> latlngs = new ArrayList<>();
@@ -226,16 +253,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
 
         // Polylines are useful for marking paths and routes on the map.
-        mMap.addPolyline(new PolylineOptions().geodesic(true)
-
-                .add(new LatLng(60.172503, 24.939974))
-                .add(new LatLng(60.198958, 24.932931))
-                .add(new LatLng(60.179890, 24.960942))
-                .add(new LatLng(60.172503, 24.939974))
-                .clickable(true)
-                .width(7)
-                .color(Color.GREEN)
-        );*/
+       */
 
         // LatLng position = new LatLng(lat, lng);
 
@@ -255,7 +273,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng Helsinki = new LatLng(60.172503, 24.939974);
         //mMap.addMarker(new MarkerOptions().position(Helsinki).title("Marker in Helsinki"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(Helsinki));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsinki, 8));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsinki, 15));
     }
 
     public void filterPolyLi(String id, String date, List<Location> locLis, int colr){
