@@ -93,24 +93,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
             Toast.makeText(MapsActivity.this, ""+locLis.get(70).getDate()+locLis.get(70).getDriverId(), Toast.LENGTH_SHORT).show();
+                LatLng Helsini = new LatLng(locLis.get(5).getLat(), locLis.get(5).getLangi());
 
-            /*    mMap.addPolyline(new PolylineOptions().geodesic(true)
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsini, 15));
 
-                        .add(new LatLng(locLis.get(70).getLat(), locLis.get(70).getLangi()))
-                        .add(new LatLng(locLis.get(71).getLat(), locLis.get(71).getLangi()))
-                        .add(new LatLng(locLis.get(72).getLat(), locLis.get(72).getLangi()))
-                        .add(new LatLng(locLis.get(73).getLat(), locLis.get(73).getLangi()))
-                        .add(new LatLng(locLis.get(74).getLat(), locLis.get(74).getLangi()))
-                        .add(new LatLng(locLis.get(75).getLat(), locLis.get(75).getLangi()))
-                        .add(new LatLng(locLis.get(76).getLat(), locLis.get(76).getLangi()))
-                        .add(new LatLng(locLis.get(77).getLat(), locLis.get(77).getLangi()))
-                        .add(new LatLng(locLis.get(78).getLat(), locLis.get(78).getLangi()))
-                        .add(new LatLng(locLis.get(79).getLat(), locLis.get(79).getLangi()))
-
-                        .clickable(true)
-                        .width(7)
-                        .color(Color.GREEN)
-                );*/
 
 
              /*   routeOpts = new PolylineOptions().color(Color.BLUE)
@@ -270,10 +256,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 17));
 */
         // Add a marker in Sydney and move the camera
-        LatLng Helsinki = new LatLng(60.172503, 24.939974);
+       // LatLng Helsinki = new LatLng(60.172503, 24.939974);
         //mMap.addMarker(new MarkerOptions().position(Helsinki).title("Marker in Helsinki"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(Helsinki));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsinki, 15));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(Helsinki));
+       // mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsinki, 15));
     }
 
     public void filterPolyLi(String id, String date, List<Location> locLis, int colr){
