@@ -23,7 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.MainActivity" />
         <activity android:name=".app.FuelActivity" />
         <activity android:name=".app.EditActivity" />
         <activity android:name=".app.AddFuelActivity" />

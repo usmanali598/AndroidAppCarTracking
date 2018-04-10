@@ -50,23 +50,12 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
-        final EditText userName = (EditText) findViewById(R.id.username);
-        final EditText passworD = (EditText) findViewById(R.id.password);
-        final EditText nave = (EditText) findViewById(R.id.name);
-        final EditText evail = (EditText) findViewById(R.id.email);
 
         Button editin = (Button) findViewById(R.id.btEdt);
         // Button addAdd = (Button) findViewById(R.id.add);
-        Button userS = (Button) findViewById(R.id.user);
+
         Button addFu = (Button) findViewById(R.id.btnAddFuel);
         Button deleteBt = (Button) findViewById(R.id.deleteButton);
-
-        userS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(FirstActivity.this, MainActivity.class));
-            }
-        });
         Button fuelS = (Button) findViewById(R.id.fuel);
         fuelS.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,8 +98,6 @@ public class FirstActivity extends AppCompatActivity {
                 startActivity(new Intent(FirstActivity.this, MapsActivity.class));
             }
         });
-
-
 
         Intent i = new Intent(getApplicationContext(), ServiceClass.class);
         startService(i);
@@ -195,72 +182,3 @@ public class FirstActivity extends AppCompatActivity {
 
     }
 }
-       /* @Override
-        public void onLocationChanged(Location location) {
-
-            lat = location.getLatitude();
-            lng = location.getLongitude();
-
-            if (mMap != null){
-                LatLng position = new LatLng(lat, lng);
-                Toast.makeText(this, "LocationChanged: "+location.getLatitude()+" - "+location.getLongitude(), Toast.LENGTH_SHORT).show();
-
-                // Showing the current location in Google Map
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(lat,lng)));
-
-                //double langi = location.getLongitude();
-
-                Location loca = new Location(lat, lng);
-                sendNetworkRequest(loca);
-
-                // Zoom in the Google Map
-                mMap.animateCamera(CameraUpdateFactory.zoomTo(25));
-                if (routeOpts!=null) {
-                    LatLng newPoint = new LatLng(location.getLatitude(), location.getLongitude());
-                    List<LatLng> points = route.getPoints();
-                    points.add(newPoint);
-                    route.setPoints(points);
-                }
-            }*/
-
-
-  //  }
-//-----------------------------------------------------------------
-
-       /* addAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                User user = new User(
-                        userName.getText().toString(),
-                        passworD.getText().toString(),
-                        nave.getText().toString(),
-                        evail.getText().toString()
-                );
-              //  sendNetworkRequest(user);
-            }
-        });*/
-
-       /* private void sendNetworkRequest(User user) {
-        //Heroku server is being used so it was only for localhost
-            Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.0.103:8080/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-
-            Api apiService = retrofit.create(Api.class);
-            Call<List<User>> call = apiService.addUsers(user);
-            call.enqueue(new Callback<List<User>>() {
-                @Override
-                public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                    Toast.makeText(FirstActivity.this, "Here is:" + response.body(), Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onFailure(Call<List<User>> call, Throwable t) {
-                    Toast.makeText(FirstActivity.this, "Something stupid happend", Toast.LENGTH_SHORT).show();
-                }
-            });
-
-
-        }*/
-
