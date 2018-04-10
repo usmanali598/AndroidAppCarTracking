@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".app.FirstActivity">
+        <activity android:name=".app.IdFieldActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,8 +28,7 @@
         <activity android:name=".app.UpdateFuel" />
         <activity android:name=".app.DeleteFuelActivity" />
         <activity android:name=".app.LocationActivity" />
-        <activity android:name=".app.IdFieldActivity"/>
-
+        <activity android:name=".app.FirstActivity"/>
         <service android:name=".app.ServiceClass" />
 
         <!--

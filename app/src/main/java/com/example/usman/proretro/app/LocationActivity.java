@@ -47,7 +47,7 @@ public class LocationActivity extends AppCompatActivity {
         final ListView listView = (ListView) findViewById(R.id.location_list);
 
        // Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.43.65:8080/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

@@ -20,26 +20,17 @@ import retrofit2.http.Path;
 
 public interface Api {
 
-    @GET("users")
-    Call<List<User>> getUsers();
-
     @GET("fuels")
     Call<List<Fuel>> getFuels();
 
     @GET("locations")
     Call<List<Location>> getLocations();
 
-    @POST("users")
-    Call<List<User>> addUsers(@Body User user);
-
     @POST("fuels")
     Call<List<Fuel>> addFuels(@Body Fuel fuel);
 
     @POST("locations")
     Call<List<Location>> addLocations(@Body Location location);
-
-    @PUT("users/{id}/")
-    Call<List<User>> editUsers(@Path("id")int userId, @Body User user);
 
     @PUT("fuels/{id}")
     Call<Fuel> editFuels(@Path("id")long id, @Body Fuel fuel);

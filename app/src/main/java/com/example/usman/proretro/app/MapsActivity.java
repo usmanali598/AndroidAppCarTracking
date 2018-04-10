@@ -30,7 +30,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -72,7 +74,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.43.65:8080/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -131,10 +133,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .geodesic(true);
                 mMap.addPolyline(rectOptions);*/
 
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ");
+                String strDate = sdf.format(calendar.getTime());
 
-                //filterPolyLi("1",  "08/04/2018", locLis, getResources().getColor(R.color.colorAccent));
+                filterPolyLi("1",  "10/04/2018", locLis, getResources().getColor(R.color.colorAccent));
+                //filterPolyLi("1",  strDate, locLis, getResources().getColor(R.color.colorAccent));
+
                 //filterPolyLi("2",  "09/04/2018", locLis, getResources().getColor(R.color.colorPrimaryDark));
-                filterPolyLi("1",  "2018 / 04 / 10 ", locLis, getResources().getColor(R.color.colorPrimaryDark));
+               // filterPolyLi("1",  "2018 / 04 / 10 ", locLis, getResources().getColor(R.color.colorPrimaryDark));
 
                 //"dd / MM / yyyy "
                 // filterPolyLi("1",  "2018/04/10", locLis, getResources().getColor(R.color.colorPrimary));

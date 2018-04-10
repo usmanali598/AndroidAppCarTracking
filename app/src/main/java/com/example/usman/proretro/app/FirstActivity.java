@@ -138,18 +138,17 @@ public class FirstActivity extends AppCompatActivity {
 
                     Calendar calendar = Calendar.getInstance();
                    // SimpleDateFormat sdf = new SimpleDateFormat("yyyy / MM / dd ");
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd / MM / yyyy ");
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ");
                     String strDate = sdf.format(calendar.getTime());
 
-                    Location loca = new Location("1",lat, langi, strDate);
+                    String driveId = getIntent().getStringExtra("idForMap");
+                    Location loca = new Location(driveId, lat, langi, strDate);
                     sendNetworkRequest(loca);
-
                 }
             };
         }
         registerReceiver(broadcastReceiver, new IntentFilter("location_update"));
     }
-
 
     @Override
     protected void onDestroy() {
@@ -161,9 +160,8 @@ public class FirstActivity extends AppCompatActivity {
 
     private void sendNetworkRequest(Location location) {
 
-
       //  Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.43.65:8080/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

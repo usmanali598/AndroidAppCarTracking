@@ -27,7 +27,6 @@ public class ServiceClass extends Service {
         return null;
     }
 
-
     @SuppressLint("MissingPermission")
     @Override
     public void onCreate() {
@@ -43,12 +42,10 @@ public class ServiceClass extends Service {
 
             @Override
             public void onStatusChanged(String s, int i, Bundle bundle) {
-
             }
 
             @Override
             public void onProviderEnabled(String s) {
-
             }
 
             @Override
@@ -62,8 +59,7 @@ public class ServiceClass extends Service {
         locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
 
         //noinspection MissingPermission
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,5,listener);
-
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000*30,10,listener);
     }
 
     @SuppressLint("MissingPermission")
