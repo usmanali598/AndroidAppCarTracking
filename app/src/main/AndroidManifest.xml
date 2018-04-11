@@ -16,19 +16,34 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".app.IdFieldActivity">
+        <activity android:name=".app.IdFieldActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.FuelActivity" />
-        <activity android:name=".app.AddFuelActivity" />
-        <activity android:name=".app.UpdateFuel" />
-        <activity android:name=".app.DeleteFuelActivity" />
-        <activity android:name=".app.LocationActivity" />
-        <activity android:name=".app.FirstActivity"/>
+        <activity android:name=".app.FuelActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.FirstActivity"/>
+        </activity>
+        <activity android:name=".app.AddFuelActivity" >
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.FirstActivity"/>
+        </activity>
+        <activity android:name=".app.UpdateFuel" >
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.FirstActivity"/>
+        </activity>
+        <activity android:name=".app.DeleteFuelActivity" >
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.FirstActivity"/>
+        </activity>
+        <activity android:name=".app.LocationActivity" >
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.FirstActivity"/>
+        </activity>
+        <activity android:name=".app.FirstActivity"></activity>
         <service android:name=".app.ServiceClass" />
 
         <!--
@@ -42,10 +57,11 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBTvQJ6cyN-RN7Hv9KRGKgcU2MqPGUOYqk" />
-
         <activity
             android:name=".app.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.FirstActivity"/>
+        </activity>
     </application>
-
 </manifest>
