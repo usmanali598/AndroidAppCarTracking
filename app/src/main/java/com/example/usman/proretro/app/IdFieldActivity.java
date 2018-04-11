@@ -17,6 +17,7 @@ import com.example.usman.proretro.R;
 public class IdFieldActivity extends AppCompatActivity {
 
     private EditText forId;
+    private EditText idName;
     private Button addId;
 
     @Override
@@ -29,17 +30,17 @@ public class IdFieldActivity extends AppCompatActivity {
         forId = (EditText) findViewById(R.id.etIdField);
         addId = (Button)findViewById(R.id.btIdField);
 
-        final String idTex = forId.getText().toString();
-
         addId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ini = new Intent(IdFieldActivity.this, FirstActivity.class);
-                ini.putExtra("idForMap", idTex);
-                startActivity(ini);
+                String idTex = forId.getText().toString();
+                Intent intent = new Intent(IdFieldActivity.this, FirstActivity.class);
+                //ini.putExtra("idMap", idTex);
+                intent.putExtra("idMap", idTex);
+                //intent.putExtra("soom", "thing");
+                startActivity(intent);
             }
         });
-
 
     }
 }

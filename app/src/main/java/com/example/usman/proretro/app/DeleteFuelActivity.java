@@ -37,16 +37,13 @@ public class DeleteFuelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_delete_fuel);
 
         Intent in = getIntent();
-
         String ids = String.valueOf(in.getLongExtra("fuelId", 0));
 
         deletefuelId = (EditText) findViewById(R.id.etIdFuel);
         deleteButton = (Button) findViewById(R.id.btDelBtn);
-
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 deleteNetworkRequest((long) Integer.parseInt(deletefuelId.getText().toString()));
             }
         });
@@ -62,9 +59,7 @@ public class DeleteFuelActivity extends AppCompatActivity {
 
         Api apiService = retrofit.create(Api.class);
 
-
         Call<Fuel> call = apiService.deleteFuels(id);
-
 
         call.enqueue(new Callback<Fuel>() {
             @Override

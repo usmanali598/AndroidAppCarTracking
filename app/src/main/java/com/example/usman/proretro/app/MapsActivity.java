@@ -47,14 +47,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     Toolbar toolbar;
-
     private Polyline route = null;
     private PolylineOptions routeOpts = null;
     private boolean drawTrack = true;
     long locationId;
     String driverId, date;
     double lat, lng;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,13 +103,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ");
                 String strDate = sdf.format(calendar.getTime());
 
-                filterPolyLi("1",  "10/04/2018", locLis, getResources().getColor(R.color.colorAccent));
-                //filterPolyLi("1",  strDate, locLis, getResources().getColor(R.color.colorAccent));
 
+                //filterPolyLi("1",  "10/04/2018", locLis, getResources().getColor(R.color.colorAccent));
+                filterPolyLi("",  strDate, locLis,getResources().getColor(R.color.colorAccent), "ALI");
                 //filterPolyLi("2",  "09/04/2018", locLis, getResources().getColor(R.color.colorPrimaryDark));
                // filterPolyLi("1",  "2018 / 04 / 10 ", locLis, getResources().getColor(R.color.colorPrimaryDark));
-
-
         }
 
             @Override
@@ -119,61 +115,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Toast.makeText(MapsActivity.this, "Check if retrieving or refresh", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-        //String ids = String.valueOf(getIntent().getLongExtra("locationId", 0));
-       /* locationId = getIntent().getLongExtra("locationId", 0);
-        driverId = getIntent().getStringExtra("driverId");
-        lat = getIntent().getDoubleExtra("lat", 12.12);
-        lng = getIntent().getDoubleExtra("langi", 20.12);
-        Toast.makeText(this, ""+driverId, Toast.LENGTH_SHORT).show();
-      //  double lat = getIntent().getDoubleExtra("lat", 0);
-        //double lng = getIntent().getDoubleExtra("langi", 0);
-        date = getIntent().getStringExtra("date");
-
-        Toast.makeText(this, ""+locationId+driverId+lat+lng+date, Toast.LENGTH_SHORT).show();*/
-
-
-     /*   mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(60.198958, 24.932931))
-                .draggable(true)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-
-        mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(60.172503, 24.939974))
-                .draggable(true)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
-
-        // Polylines are useful for marking paths and routes on the map.
-       */
-
-        // LatLng position = new LatLng(lat, lng);
-
         mMap.getCameraPosition();
-
-       /*     mMap.addMarker(new MarkerOptions()
-                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.car))
-                    .anchor(0.0f, 1.0f)
-                    .title("Your current location")
-                    .snippet("This is a car")
-                    .position(position));
-            //Toast.makeText(this, "MapReady Function called", Toast.LENGTH_SHORT).show();
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 17));
-*/
-        // Add a marker in Sydney and move the camera
-       // LatLng Helsinki = new LatLng(60.172503, 24.939974);
-        //mMap.addMarker(new MarkerOptions().position(Helsinki).title("Marker in Helsinki"));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(Helsinki));
-       // mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsinki, 15));
     }
 
-    public void filterPolyLi(String id, String date, List<Location> locLis, int colr){
+    public void filterPolyLi(String id, String date, List<Location> locLis, int colr, String name){
 
         /*LatLng starting = new LatLng(locLis.get(0).getLat(), locLis.get(0).getLangi());
-
         int end = locLis.size()-1;
-
         LatLng ending = new LatLng(locLis.get(end).getLat(), locLis.get(end).getLangi());*/
 
             List<LatLng> latlngs = new ArrayList<>();
@@ -182,7 +130,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if ((locLis.get(i).getDriverId().equalsIgnoreCase(id)) && (locLis.get(i).getDate().equalsIgnoreCase(date)) ) {
                     latlngs.add(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()));
                     mMap.addMarker(new MarkerOptions().position(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()))
-                            .title("Marker of "+id)
+                            .title(name+" "+id)
                             .snippet(""+date)
                     );
                 }
@@ -195,5 +143,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
        // mMap.addMarker(new MarkerOptions().position(starting).title("Marker in beginnig"));
         //mMap.addMarker(new MarkerOptions().position(ending).title("Marker in ending"));
         }
-
 }

@@ -44,13 +44,15 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
-
         Button editin = (Button) findViewById(R.id.btEdt);
-        // Button addAdd = (Button) findViewById(R.id.add);
 
         Button addFu = (Button) findViewById(R.id.btnAddFuel);
         Button deleteBt = (Button) findViewById(R.id.deleteButton);
         Button fuelS = (Button) findViewById(R.id.fuel);
+        //String nem = getIntent().getStringExtra("nameForMap");
+
+        String ides = (String) getIntent().getExtras().get("idMap");
+        Toast.makeText(this, ""+ides, Toast.LENGTH_SHORT).show();
         fuelS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -135,7 +137,8 @@ public class FirstActivity extends AppCompatActivity {
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ");
                     String strDate = sdf.format(calendar.getTime());
 
-                    String driveId = getIntent().getStringExtra("idForMap");
+                    //String driveId = getIntent().getStringExtra("idForMap");
+                    String driveId = (String) getIntent().getExtras().get("idMap");
                     Location loca = new Location(driveId, lat, langi, strDate);
                     sendNetworkRequest(loca);
                 }
@@ -166,7 +169,6 @@ public class FirstActivity extends AppCompatActivity {
             public void onResponse(Call<List<Location>> call, Response<List<Location>> response) {
                 Toast.makeText(FirstActivity.this, "sendingLoc in db", Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onFailure(Call<List<Location>> call, Throwable t) {
                 Toast.makeText(FirstActivity.this, "check if goes to db", Toast.LENGTH_SHORT).show();

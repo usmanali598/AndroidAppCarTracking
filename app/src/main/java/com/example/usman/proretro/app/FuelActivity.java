@@ -54,15 +54,11 @@ public class FuelActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Fuel>>() {
             @Override
             public void onResponse(Call<List<Fuel>> call, Response<List<Fuel>> response) {
-
                 List<Fuel> fulLis = response.body();
-
                 listView.setAdapter(new FuelAdapter(FuelActivity.this, fulLis));
             }
-
             @Override
             public void onFailure(Call<List<Fuel>> call, Throwable t) {
-
                 Toast.makeText(FuelActivity.this, "error :( "+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
