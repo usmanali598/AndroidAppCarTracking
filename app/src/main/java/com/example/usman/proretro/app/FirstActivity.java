@@ -50,18 +50,12 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
-        Button editin = (Button) findViewById(R.id.btEdt);
-
         Button addFu = (Button) findViewById(R.id.btnAddFuel);
-        Button deleteBt = (Button) findViewById(R.id.deleteButton);
         Button fuelS = (Button) findViewById(R.id.fuel);
         //String nem = getIntent().getStringExtra("nameForMap");
 
         toolbar = (Toolbar)findViewById(R.id.refresh);
         getSupportActionBar().setTitle("Menu");
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 //        String ides = (String) getIntent().getExtras().get("idMap");
       //  Toast.makeText(this, ""+ides, Toast.LENGTH_SHORT).show();
@@ -69,19 +63,6 @@ public class FirstActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(FirstActivity.this, FuelActivity.class));
-            }
-        });
-
-        editin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(FirstActivity.this, UpdateFuel.class));
-            }
-        });
-        deleteBt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(FirstActivity.this, DeleteFuelActivity.class));
             }
         });
 

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -20,7 +21,7 @@ public class ServiceClass extends Service {
 
     private LocationListener listener;
     private LocationManager locationManager;
-
+  private String provider;
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -59,7 +60,9 @@ public class ServiceClass extends Service {
         locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
 
         //noinspection MissingPermission
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000*30,10,listener);
+//      locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000*30,10,listener);
+        String provider = locationManager.getBestProvider(new Criteria(), false);
+    locationManager.requestLocationUpdates(provider ,1000*30,10,listener);
     }
 
     @SuppressLint("MissingPermission")

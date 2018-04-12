@@ -1,5 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    tools:context="com.example.usman.proretro.app.FirstActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+
+            app:srcCompat="@mipmap/logo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btMaps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@android:color/holo_orange_dark"
+            android:drawableLeft="@mipmap/app_icon"
+            android:padding="30dp"
+            android:text="MAP" />
+
+        <Button
+            android:id="@+id/fuel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@drawable/button_bg"
+            android:drawableLeft="@mipmap/fuel"
+            android:padding="30dp"
+            android:text="Fuel" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btLoc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@android:color/holo_red_dark"
+            android:drawableTop="@mipmap/app_icon"
+            android:padding="20dp"
+            android:text="Location" />
+
+        <Button
+            android:id="@+id/btnAddFuel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@android:color/holo_green_dark"
+            android:drawableTop="@mipmap/fuel"
+            android:padding="20dp"
+            android:text="Add Fuel" />
+    </LinearLayout>
+</RelativeLayout>
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    tools:context="com.example.usman.proretro.app.FirstActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@mipmap/log" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fuel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@drawable/new_button"
+            android:drawableLeft="@mipmap/fuel"
+            android:padding="30dp"
+            android:text="@string/fuels" />
+
+        <Button
+            android:id="@+id/btnAddFuel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2dp"
+            android:background="@android:color/holo_orange_light"
+            android:drawableLeft="@android:drawable/ic_input_add"
+            android:padding="30dp"
+            android:text="Add Fuel"
+            android:textColor="@color/colorPrimaryDark" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btLoc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2dp"
+            android:background="@android:color/holo_red_dark"
+            android:drawableLeft="@android:drawable/button_onoff_indicator_on"
+            android:padding="30dp"
+            android:text="@string/location"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <Button
+            android:id="@+id/btMaps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg"
+            android:drawableLeft="@mipmap/app_icon"
+            android:padding="30dp"
+            android:layout_weight="2dp"
+            android:text="@string/maps"
+            />
+    </LinearLayout>
+</RelativeLayout>-->
+<!--
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,65 +183,63 @@
 
     <Button
         android:id="@+id/fuel"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:background="@android:color/holo_purple"
+        android:background="@drawable/new_button"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:drawableLeft="@mipmap/fuel"
         android:freezesText="true"
         android:gravity="center_vertical|center_horizontal"
-        android:text="@string/fuels" />
+        android:padding="15dp"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="7"
+        android:text="@string/fuels"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/btnAddFuel"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:background="@android:drawable/ic_input_add"
+        android:background="@android:color/holo_orange_light"
+        android:drawableLeft="@android:drawable/ic_input_add"
+        android:padding="15dp"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="7"
         android:text="Add Fuel"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/btEdt"
-        android:layout_width="match_parent"
+        android:id="@+id/btLoc"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:background="?attr/colorPrimaryDark"
-        android:freezesText="true"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/edit" />
+        android:background="@android:color/holo_red_dark"
+        android:drawableLeft="@android:drawable/button_onoff_indicator_on"
+        android:padding="15dp"
+        android:text="@string/location"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp" />
 
     <Button
-        android:id="@+id/deleteButton"
-        android:layout_width="match_parent"
+        android:id="@+id/btMaps"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/black"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/button_bg"
+        android:drawableLeft="@mipmap/app_icon"
+        android:padding="15dp"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="7"
-        android:text="@string/delete_fuel"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-
-    <Button
-        android:id="@+id/btLoc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="?android:attr/colorActivatedHighlight"
-        android:text="@string/location"
-        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/maps"
         android:textSize="20sp" />
-        <Button
-            android:id="@+id/btMaps"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/button_bg"
-            android:text="@string/maps"
-            android:textSize="20sp" />
 
-</LinearLayout>
+</LinearLayout>-->

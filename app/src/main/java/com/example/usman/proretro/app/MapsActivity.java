@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -57,6 +58,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     long locationId;
     String driverId, date;
     double lat, lng;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +107,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsini, 15));
                 }
 
+
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ");
                 String strDate = sdf.format(calendar.getTime());
@@ -115,8 +118,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 //System.out.println("Yesterday's date was "+dateFormat.format(cal.getTime()));
                 Toast.makeText(MapsActivity.this, "Yesterday Was "+yesterday, Toast.LENGTH_SHORT).show();
 
+
                 filterPolyLi("1",  strDate, locLis, getResources().getColor(R.color.colorPrimaryDark), "ALI");
-                filterPolyLi("",  strDate, locLis,getResources().getColor(R.color.colorAccent), "ALI");
+                filterPolyLi("",  yesterday, locLis,getResources().getColor(R.color.colorAccent), "ALI");
                 //filterPolyLi("2",  "09/04/2018", locLis, getResources().getColor(R.color.colorPrimaryDark));
                // filterPolyLi("1",  "2018 / 04 / 10 ", locLis, getResources().getColor(R.color.colorPrimaryDark));
         }
@@ -152,7 +156,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Toast.makeText(this, "today", Toast.LENGTH_SHORT).show();;
                 break;
             case R.id.action_yesterday:
-                Toast.makeText(this, "Yesterday", Toast.LENGTH_SHORT).show();;
+                Toast.makeText(this, "Yesterday", Toast.LENGTH_SHORT).show();
+               // filterPolyLi("1",);
                 break;
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
