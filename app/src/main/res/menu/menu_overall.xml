@@ -13,9 +13,14 @@
         app:showAsAction="collapseActionView"
         android:title="@string/daily_fuel_amount"/>
     <item
-        android:id="@+id/action_km"
+        android:id="@+id/action_today"
+        android:orderInCategory="105"
+        app:showAsAction="collapseActionView"
+        android:title="@string/today_places"/>
+    <item
+        android:id="@+id/action_yesterday"
         android:orderInCategory="106"
         app:showAsAction="collapseActionView"
-        android:title="@string/daily_km_amount"/>
+        android:title="@string/yesterday_places"/>
 
 </menu>

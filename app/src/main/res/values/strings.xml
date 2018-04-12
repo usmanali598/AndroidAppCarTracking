@@ -28,4 +28,6 @@
     <string name="tvText">Add Id For Location Tracking</string>
     <string name="daily_km_amount">Daily KM</string>
     <string name="daily_fuel_amount">Daily Fuel</string>
+    <string name="today_places">Today\'s Places</string>
+    <string name="yesterday_places">Yesterday\'s Places</string>
 </resources>

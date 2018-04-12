@@ -69,13 +69,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         toolbar = (Toolbar)findViewById(R.id.refresh);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-       // getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-       // getActionBar().getDisplayOptions();
-       // getActionBar().setDisplayHomeAsUpEnabled(true);
-
       String respo = getIntent().getStringExtra("respo");
 
     }
@@ -116,7 +109,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ");
                 String strDate = sdf.format(calendar.getTime());
 
-
+                //Yesterday Date
+                calendar.add(Calendar.DATE, -1);
+                String yesterday = sdf.format(calendar.getTime());
+                //System.out.println("Yesterday's date was "+dateFormat.format(cal.getTime()));
+                Toast.makeText(MapsActivity.this, "Yesterday Was "+yesterday, Toast.LENGTH_SHORT).show();
 
                 filterPolyLi("1",  strDate, locLis, getResources().getColor(R.color.colorPrimaryDark), "ALI");
                 filterPolyLi("",  strDate, locLis,getResources().getColor(R.color.colorAccent), "ALI");
@@ -151,8 +148,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Toast.makeText(this, "Fuel is selected!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, FuelActivity.class));
                 break;
-            case R.id.action_km:
-                Toast.makeText(this, "KM drived selected!", Toast.LENGTH_SHORT).show();;
+            case R.id.action_today:
+                Toast.makeText(this, "today", Toast.LENGTH_SHORT).show();;
+                break;
+            case R.id.action_yesterday:
+                Toast.makeText(this, "Yesterday", Toast.LENGTH_SHORT).show();;
                 break;
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
