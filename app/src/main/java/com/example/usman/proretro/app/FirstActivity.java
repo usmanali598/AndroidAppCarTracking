@@ -11,9 +11,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -53,16 +57,14 @@ public class FirstActivity extends AppCompatActivity {
         Button fuelS = (Button) findViewById(R.id.fuel);
         //String nem = getIntent().getStringExtra("nameForMap");
 
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("First");
-        toolbar.setSubtitle("lists");
-        setSupportActionBar(toolbar);
+        toolbar = (Toolbar)findViewById(R.id.refresh);
+        getSupportActionBar().setTitle("Menu");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        String ides = (String) getIntent().getExtras().get("idMap");
-        Toast.makeText(this, ""+ides, Toast.LENGTH_SHORT).show();
+//        String ides = (String) getIntent().getExtras().get("idMap");
+      //  Toast.makeText(this, ""+ides, Toast.LENGTH_SHORT).show();
         fuelS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -185,5 +187,34 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.get_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        String title = (String)item.getTitle();
+        //Toast.makeText(this, "title is: "+title, Toast.LENGTH_SHORT).show();
+
+        switch (item.getItemId()){
+            case R.id.refresh:
+                Toast.makeText(this, "Refreshed :)", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
+                break;
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+
+        }
+
+        return true;
     }
 }

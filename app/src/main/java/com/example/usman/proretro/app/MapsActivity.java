@@ -8,7 +8,8 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
+//import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,6 +32,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import android.support.annotation.Nullable;
+import android.widget.Toolbar;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -44,7 +47,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static java.security.AccessController.getContext;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     Toolbar toolbar;
@@ -64,14 +67,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        /*setSupportActionBar(toolbar);
+        toolbar = (Toolbar)findViewById(R.id.refresh);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        getActionBar().getDisplayOptions();*/
+       // getActionBar().getDisplayOptions();
        // getActionBar().setDisplayHomeAsUpEnabled(true);
 
       String respo = getIntent().getStringExtra("respo");
@@ -115,7 +117,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 String strDate = sdf.format(calendar.getTime());
 
 
-                filterPolyLi("",  "11/04/2018", locLis, getResources().getColor(R.color.colorAccent), "ALI");
+
+                filterPolyLi("1",  strDate, locLis, getResources().getColor(R.color.colorPrimaryDark), "ALI");
                 filterPolyLi("",  strDate, locLis,getResources().getColor(R.color.colorAccent), "ALI");
                 //filterPolyLi("2",  "09/04/2018", locLis, getResources().getColor(R.color.colorPrimaryDark));
                // filterPolyLi("1",  "2018 / 04 / 10 ", locLis, getResources().getColor(R.color.colorPrimaryDark));
@@ -127,6 +130,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
         mMap.getCameraPosition();
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_overall, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.refresh:
+                Toast.makeText(this, "Refreshed :)", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
+                break;
+            case R.id.action_fuel:
+                Toast.makeText(this, "Fuel is selected!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, FuelActivity.class));
+                break;
+            case R.id.action_km:
+                Toast.makeText(this, "KM drived selected!", Toast.LENGTH_SHORT).show();;
+                break;
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return true;
     }
 
     public void filterPolyLi(String id, String date, List<Location> locLis, int colr, String name){
@@ -154,4 +186,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
        // mMap.addMarker(new MarkerOptions().position(starting).title("Marker in beginnig"));
         //mMap.addMarker(new MarkerOptions().position(ending).title("Marker in ending"));
         }
+
+
 }

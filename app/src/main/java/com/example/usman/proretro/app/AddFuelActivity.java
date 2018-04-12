@@ -3,12 +3,11 @@ package com.example.usman.proretro.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.Toolbar;
-
 import com.example.usman.proretro.R;
 import com.example.usman.proretro.interfaces.Api;
 import com.example.usman.proretro.models.Fuel;
@@ -38,6 +37,11 @@ public class AddFuelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fuel);
+
+        getSupportActionBar().setTitle("Add Fuels");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Intent in = getIntent();
 

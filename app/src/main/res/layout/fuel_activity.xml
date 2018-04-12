@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     android:id="@+id/fuels_activity"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,12 +12,13 @@
     android:paddingTop="16dp"
     tools:context="com.example.usman.proretro.app.FuelActivity">
 
+
     <ListView
         android:id="@+id/fuel_list"
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
 </ListView>
 
-    <include layout="@layout/toolbar_layout"/>
+
 
 </RelativeLayout>

@@ -36,10 +36,15 @@ public class FuelActivity extends AppCompatActivity {
 
         Intent in = getIntent();
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+       /* toolbar = (Toolbar) findViewById(R.id.toolbar);
         getSupportActionBar().setTitle("Fuel List");
         getSupportActionBar().setSubtitle("Fuels");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
+        toolbar = (Toolbar)findViewById(R.id.refresh);
+        getSupportActionBar().setTitle("Fuel List");
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         final ListView listView = (ListView) findViewById(R.id.fuel_list);
 

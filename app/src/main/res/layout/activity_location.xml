@@ -11,6 +11,8 @@
     android:paddingTop="16dp"
     tools:context="com.example.usman.proretro.app.LocationActivity">
 
+   <!-- <include layout="@layout/toolbar_layout"/>-->
+
     <ListView
         android:id="@+id/location_list"
         android:layout_height="wrap_content"
