@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context="com.example.usman.proretro.app.AddFuelActivity">
 
+    <include layout="@layout/toolbar_layout"/>
+
     <EditText
         android:id="@+id/etUserperson"
         android:layout_width="match_parent"

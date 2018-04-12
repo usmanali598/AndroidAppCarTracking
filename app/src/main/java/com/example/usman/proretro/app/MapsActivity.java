@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
-import android.widget.Toolbar;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -64,7 +64,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        toolbar = (Toolbar) findViewById(R.id.refresh);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         /*setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -114,7 +115,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 String strDate = sdf.format(calendar.getTime());
 
 
-                //filterPolyLi("1",  "10/04/2018", locLis, getResources().getColor(R.color.colorAccent));
+                filterPolyLi("",  "11/04/2018", locLis, getResources().getColor(R.color.colorAccent), "ALI");
                 filterPolyLi("",  strDate, locLis,getResources().getColor(R.color.colorAccent), "ALI");
                 //filterPolyLi("2",  "09/04/2018", locLis, getResources().getColor(R.color.colorPrimaryDark));
                // filterPolyLi("1",  "2018 / 04 / 10 ", locLis, getResources().getColor(R.color.colorPrimaryDark));

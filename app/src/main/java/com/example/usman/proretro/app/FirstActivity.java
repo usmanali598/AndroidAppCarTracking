@@ -13,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -38,6 +39,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class FirstActivity extends AppCompatActivity {
 
     private BroadcastReceiver broadcastReceiver;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +52,14 @@ public class FirstActivity extends AppCompatActivity {
         Button deleteBt = (Button) findViewById(R.id.deleteButton);
         Button fuelS = (Button) findViewById(R.id.fuel);
         //String nem = getIntent().getStringExtra("nameForMap");
+
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("First");
+        toolbar.setSubtitle("lists");
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         String ides = (String) getIntent().getExtras().get("idMap");
         Toast.makeText(this, ""+ides, Toast.LENGTH_SHORT).show();

@@ -43,7 +43,10 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".app.FirstActivity"/>
         </activity>
-        <activity android:name=".app.FirstActivity"></activity>
+        <activity android:name=".app.FirstActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.IdFieldActivity"/>
+        </activity>
         <service android:name=".app.ServiceClass" />
 
         <!--

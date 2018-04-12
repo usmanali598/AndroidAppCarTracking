@@ -17,4 +17,6 @@
         android:layout_width="match_parent">
 </ListView>
 
+    <include layout="@layout/toolbar_layout"/>
+
 </RelativeLayout>

@@ -41,7 +41,7 @@ public class LocationActivity extends AppCompatActivity {
         Intent in = getIntent();
 
         toolbar = (Toolbar) findViewById(R.id.refresh);
-        getSupportActionBar().setTitle("Location List");
+      //  getSupportActionBar().setTitle("Location List");
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final ListView listView = (ListView) findViewById(R.id.location_list);
