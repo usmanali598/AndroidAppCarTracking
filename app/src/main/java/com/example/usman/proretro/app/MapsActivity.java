@@ -59,7 +59,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     String driverId, date;
     double lat, lng;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +69,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mapFragment.getMapAsync(this);
 
         toolbar = (Toolbar)findViewById(R.id.refresh);
-
       String respo = getIntent().getStringExtra("respo");
 
     }
@@ -104,11 +102,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 startActivity(new Intent(this, FuelActivity.class));
                 break;
             case R.id.action_today:
-                Toast.makeText(this, "today", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
                 todayLines();
                 break;
             case R.id.action_yesterday:
-                Toast.makeText(this, "Yesterday", Toast.LENGTH_SHORT).show();
                 yesterdayLines();
                 break;
             case android.R.id.home:
@@ -120,10 +118,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public void filterPolyLi(String id, String date, List<Location> locLis, int colr, String name){
 
-        /*LatLng starting = new LatLng(locLis.get(0).getLat(), locLis.get(0).getLangi());
-        int end = locLis.size()-1;
-        LatLng ending = new LatLng(locLis.get(end).getLat(), locLis.get(end).getLangi());*/
-
             List<LatLng> latlngs = new ArrayList<>();
 
             for(int i=0; i<locLis.size(); i++){
@@ -132,6 +126,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     mMap.addMarker(new MarkerOptions().position(new LatLng(locLis.get(i).getLat(), locLis.get(i).getLangi()))
                             .title(name+" "+id)
                             .snippet(""+date)
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
                     );
                 }
             }
@@ -155,7 +150,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 public void onResponse(Call<List<Location>> call, Response<List<Location>> response) {
 
                     List<Location> locLis = response.body();
-
                     Toast.makeText(MapsActivity.this, ""+locLis.size(), Toast.LENGTH_SHORT).show();
 
                     if (locLis.size() > 0) {
@@ -173,10 +167,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     //Yesterday Date
                     calendar.add(Calendar.DATE, -1);
                     String yesterday = sdf.format(calendar.getTime());
-                    Toast.makeText(MapsActivity.this, "Yesterday Was "+yesterday, Toast.LENGTH_SHORT).show();
 
                     filterPolyLi("1",  strDate, locLis, getResources().getColor(R.color.colorPrimaryDark), "ALI");
-                    filterPolyLi("",  strDate, locLis,getResources().getColor(R.color.colorAccent), "ALI");
+                    filterPolyLi("2",  strDate, locLis, getResources().getColor(R.color.colorPrimaryDark), "Jukka");
+                    filterPolyLi("",  strDate, locLis,getResources().getColor(R.color.colorPrimaryDark), "ALI");
                 }
 
                 @Override
@@ -186,6 +180,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             });
         }
         public void yesterdayLines(){
+
             Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
@@ -207,14 +202,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsini, 15));
                     }
                     Calendar calendar = Calendar.getInstance();
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ");
                     String strDate = sdf.format(calendar.getTime());
                     //Yesterday Date
                     calendar.add(Calendar.DATE, -1);
                     String yesterday = sdf.format(calendar.getTime());
                     Toast.makeText(MapsActivity.this, "Yesterday Was "+yesterday, Toast.LENGTH_SHORT).show();
 
-                    filterPolyLi("1",  yesterday, locLis, getResources().getColor(R.color.colorPrimaryDark), "ALI");
+                    filterPolyLi("1",  yesterday, locLis, getResources().getColor(R.color.colorAccent), "ALI");
+                    filterPolyLi("2",  yesterday, locLis, getResources().getColor(R.color.colorAccent), "Jukka");
                     filterPolyLi("",  yesterday, locLis,getResources().getColor(R.color.colorAccent), "ALI");
 
                 }

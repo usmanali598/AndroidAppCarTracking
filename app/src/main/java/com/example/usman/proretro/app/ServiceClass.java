@@ -62,7 +62,7 @@ public class ServiceClass extends Service {
         //noinspection MissingPermission
 //      locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000*30,10,listener);
         String provider = locationManager.getBestProvider(new Criteria(), false);
-    locationManager.requestLocationUpdates(provider ,1000*30,10,listener);
+        locationManager.requestLocationUpdates(provider ,30000,10,listener);
     }
 
     @SuppressLint("MissingPermission")
