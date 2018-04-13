@@ -79,57 +79,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        todayLines();
 
-        Api apiService = retrofit.create(Api.class);
-
-        Call<List<Location>> call = apiService.getLocations();
-
-        call.enqueue(new Callback<List<Location>>() {
-            @Override
-            public void onResponse(Call<List<Location>> call, Response<List<Location>> response) {
-
-//                List<Location> Latlng = (List<Location>) getIntent().getExtras().get("lat");
-              List<Location> locLis = response.body();
-
-                Toast.makeText(MapsActivity.this, ""+locLis.size(), Toast.LENGTH_SHORT).show();
-                lat = getIntent().getDoubleExtra("lat", 0);
-                lng = getIntent().getDoubleExtra("langi", 0);
-
-                if (locLis.size() > 0) {
-                    LatLng Helsini = new LatLng(locLis.get(1).getLat(), locLis.get(1).getLangi());
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsini, 15));
-                } else {
-                    LatLng Helsini = new LatLng(60.172503, 24.939974);
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsini, 15));
-                }
-
-
-                Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ");
-                String strDate = sdf.format(calendar.getTime());
-
-                //Yesterday Date
-                calendar.add(Calendar.DATE, -1);
-                String yesterday = sdf.format(calendar.getTime());
-                //System.out.println("Yesterday's date was "+dateFormat.format(cal.getTime()));
-                Toast.makeText(MapsActivity.this, "Yesterday Was "+yesterday, Toast.LENGTH_SHORT).show();
-
-
-                filterPolyLi("1",  strDate, locLis, getResources().getColor(R.color.colorPrimaryDark), "ALI");
-                filterPolyLi("",  yesterday, locLis,getResources().getColor(R.color.colorAccent), "ALI");
-                //filterPolyLi("2",  "09/04/2018", locLis, getResources().getColor(R.color.colorPrimaryDark));
-               // filterPolyLi("1",  "2018 / 04 / 10 ", locLis, getResources().getColor(R.color.colorPrimaryDark));
-        }
-
-            @Override
-            public void onFailure(Call<List<Location>> call, Throwable t) {
-                Toast.makeText(MapsActivity.this, "Check if retrieving or refresh", Toast.LENGTH_SHORT).show();
-            }
-        });
         mMap.getCameraPosition();
     }
 
@@ -153,11 +104,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 startActivity(new Intent(this, FuelActivity.class));
                 break;
             case R.id.action_today:
-                Toast.makeText(this, "today", Toast.LENGTH_SHORT).show();;
+                Toast.makeText(this, "today", Toast.LENGTH_SHORT).show();
+                todayLines();
                 break;
             case R.id.action_yesterday:
                 Toast.makeText(this, "Yesterday", Toast.LENGTH_SHORT).show();
-               // filterPolyLi("1",);
+                yesterdayLines();
                 break;
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
@@ -190,6 +142,88 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             mMap.addPolyline(rectOptions);
        // mMap.addMarker(new MarkerOptions().position(starting).title("Marker in beginnig"));
         //mMap.addMarker(new MarkerOptions().position(ending).title("Marker in ending"));
+        }
+        public void todayLines(){
+            Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            Api apiService = retrofit.create(Api.class);
+            Call<List<Location>> call = apiService.getLocations();
+            call.enqueue(new Callback<List<Location>>() {
+                @Override
+                public void onResponse(Call<List<Location>> call, Response<List<Location>> response) {
+
+                    List<Location> locLis = response.body();
+
+                    Toast.makeText(MapsActivity.this, ""+locLis.size(), Toast.LENGTH_SHORT).show();
+
+                    if (locLis.size() > 0) {
+                        LatLng Helsini = new LatLng(locLis.get(1).getLat(), locLis.get(1).getLangi());
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsini, 15));
+                    } else {
+                        LatLng Helsini = new LatLng(60.172503, 24.939974);
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsini, 15));
+                    }
+
+                    Calendar calendar = Calendar.getInstance();
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ");
+                    String strDate = sdf.format(calendar.getTime());
+
+                    //Yesterday Date
+                    calendar.add(Calendar.DATE, -1);
+                    String yesterday = sdf.format(calendar.getTime());
+                    Toast.makeText(MapsActivity.this, "Yesterday Was "+yesterday, Toast.LENGTH_SHORT).show();
+
+                    filterPolyLi("1",  strDate, locLis, getResources().getColor(R.color.colorPrimaryDark), "ALI");
+                    filterPolyLi("",  strDate, locLis,getResources().getColor(R.color.colorAccent), "ALI");
+                }
+
+                @Override
+                public void onFailure(Call<List<Location>> call, Throwable t) {
+                    Toast.makeText(MapsActivity.this, "Check if retrieving or refresh", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        public void yesterdayLines(){
+            Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            Api apiService = retrofit.create(Api.class);
+            Call<List<Location>> call = apiService.getLocations();
+            call.enqueue(new Callback<List<Location>>() {
+                @Override
+                public void onResponse(Call<List<Location>> call, Response<List<Location>> response) {
+
+                    List<Location> locLis = response.body();
+                    Toast.makeText(MapsActivity.this, ""+locLis.size(), Toast.LENGTH_SHORT).show();
+
+                    if (locLis.size() > 0) {
+                        LatLng Helsini = new LatLng(locLis.get(1).getLat(), locLis.get(1).getLangi());
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsini, 15));
+                    } else {
+                        LatLng Helsini = new LatLng(60.172503, 24.939974);
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Helsini, 15));
+                    }
+                    Calendar calendar = Calendar.getInstance();
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    String strDate = sdf.format(calendar.getTime());
+                    //Yesterday Date
+                    calendar.add(Calendar.DATE, -1);
+                    String yesterday = sdf.format(calendar.getTime());
+                    Toast.makeText(MapsActivity.this, "Yesterday Was "+yesterday, Toast.LENGTH_SHORT).show();
+
+                    filterPolyLi("1",  yesterday, locLis, getResources().getColor(R.color.colorPrimaryDark), "ALI");
+                    filterPolyLi("",  yesterday, locLis,getResources().getColor(R.color.colorAccent), "ALI");
+
+                }
+
+                @Override
+                public void onFailure(Call<List<Location>> call, Throwable t) {
+                    Toast.makeText(MapsActivity.this, "Check if retrieving or refresh", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
 
