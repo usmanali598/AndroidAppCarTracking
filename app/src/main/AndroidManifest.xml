@@ -66,5 +66,10 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".app.FirstActivity"/>
         </activity>
+        <activity android:name=".app.MapsServiceless"
+            android:value=".app.FirstActivity"/>
+
+        <activity android:name=".app.TrackingOnSide"
+            android:value=".app.FirstActivity"/>
     </application>
 </manifest>
