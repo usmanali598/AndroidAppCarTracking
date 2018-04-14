@@ -34,8 +34,7 @@ public class IdFieldActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String idTex = forId.getText().toString();
-                Intent intent = new Intent(IdFieldActivity.this, FirstActivity.class);
-                //ini.putExtra("idMap", idTex);
+                Intent intent = new Intent(IdFieldActivity.this, TrackingOnSide.class);
                 intent.putExtra("idMap", idTex);
                 //intent.putExtra("soom", "thing");
                 startActivity(intent);

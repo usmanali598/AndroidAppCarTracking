@@ -69,7 +69,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mapFragment.getMapAsync(this);
 
         toolbar = (Toolbar)findViewById(R.id.refresh);
-      String respo = getIntent().getStringExtra("respo");
+        getSupportActionBar().setTitle("Location List");
+        String respo = getIntent().getStringExtra("respo");
 
     }
 
@@ -98,7 +99,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 startActivity(getIntent());
                 break;
             case R.id.action_fuel:
-                Toast.makeText(this, "Fuel is selected!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, FuelActivity.class));
                 break;
             case R.id.action_today:
@@ -135,8 +135,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             rectOptions.color(colr).width(5)
                     .geodesic(true);
             mMap.addPolyline(rectOptions);
-       // mMap.addMarker(new MarkerOptions().position(starting).title("Marker in beginnig"));
-        //mMap.addMarker(new MarkerOptions().position(ending).title("Marker in ending"));
         }
         public void todayLines(){
             Retrofit retrofit = new Retrofit.Builder().baseUrl("https://fuel-hero.herokuapp.com/")
@@ -217,7 +215,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 @Override
                 public void onFailure(Call<List<Location>> call, Throwable t) {
-                    Toast.makeText(MapsActivity.this, "Check if retrieving or refresh", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MapsActivity.this, "wait for short moment and refresh", Toast.LENGTH_SHORT).show();
                 }
             });
         }

@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
+import com.example.usman.proretro.R;
 import com.example.usman.proretro.interfaces.Api;
 import com.example.usman.proretro.models.Location;
 
@@ -38,6 +39,9 @@ public class TrackingOnSide extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_trackingside);
+       // String ides = (String) getIntent().getExtras().get("idMap");
+       // Toast.makeText(this, ""+ides, Toast.LENGTH_SHORT).show();
 
         Intent i = new Intent(getApplicationContext(), ServiceClass.class);
         startService(i);
@@ -96,7 +100,6 @@ public class TrackingOnSide extends AppCompatActivity {
         if (broadcastReceiver != null) {
             unregisterReceiver(broadcastReceiver);
         }
-
     }
 
     private void sendNetworkRequest(Location location) {
@@ -111,11 +114,11 @@ public class TrackingOnSide extends AppCompatActivity {
         call.enqueue(new Callback<List<Location>>() {
             @Override
             public void onResponse(Call<List<Location>> call, Response<List<Location>> response) {
-                Toast.makeText(TrackingOnSide.this, "sendingLoc in db", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TrackingOnSide.this, "Sending Location", Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onFailure(Call<List<Location>> call, Throwable t) {
-                Toast.makeText(TrackingOnSide.this, "check if goes to db", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TrackingOnSide.this, "Soon it will send", Toast.LENGTH_SHORT).show();
             }
         });
 

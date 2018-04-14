@@ -47,11 +47,9 @@ public class LocationAdapter extends ArrayAdapter<Location> {
         ImageButton list_butt = (ImageButton) row.findViewById(R.id.editingLocation);
         ImageButton delete_butt = (ImageButton) row.findViewById(R.id.deletingLocation);
 
-
         final Location item = values.get(position);
 
-        //final String message = item.getLocationId() + " - " + item.getDriverId() + " - " + item.getLat() + " - " + item.getLangi() + " - " + item.getDate();
-        final String message = item.getLocationId() + " - " + item.getLat() + " - " + item.getLangi();
+        final String message = item.getLocationId()+ " - "  +item.getDriverId() + " - " + item.getLat() + " - " + item.getLangi()+ " - " +item.getDate();
 
         tvLis.setText(message);
 
@@ -72,7 +70,7 @@ public class LocationAdapter extends ArrayAdapter<Location> {
         delete_butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Del button", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Only admin can delete", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -80,15 +78,15 @@ public class LocationAdapter extends ArrayAdapter<Location> {
         list_butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Edit Button", Toast.LENGTH_SHORT).show();
-                Intent intenti = new Intent(getContext(), MapsActivity.class);
+                Toast.makeText(context, "Only admin can edit", Toast.LENGTH_SHORT).show();
+                /*Intent intenti = new Intent(getContext(), MapsActivity.class);
                 intenti.putExtra("locationId", item.getLocationId());
                 intenti.putExtra("driverId", item.getDriverId());
                 intenti.putExtra("lat", item.getLat());
                 intenti.putExtra("langi", item.getLangi());
                 intenti.putExtra("date", item.getDate());
 
-                context.startActivity(intenti);
+                context.startActivity(intenti);*/
 
             }
 

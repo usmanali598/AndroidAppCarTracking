@@ -48,6 +48,8 @@ public class MapsServiceless extends AppCompatActivity implements OnMapReadyCall
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -112,7 +114,6 @@ public class MapsServiceless extends AppCompatActivity implements OnMapReadyCall
             mMap.getCameraPosition();
             mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 17));
-
         }
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
     }

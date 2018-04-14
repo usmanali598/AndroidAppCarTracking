@@ -42,9 +42,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FirstActivity extends AppCompatActivity {
 
-    private BroadcastReceiver broadcastReceiver;
+    //private BroadcastReceiver broadcastReceiver;
     Toolbar toolbar;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -99,7 +98,7 @@ public class FirstActivity extends AppCompatActivity {
         serv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FirstActivity.this, TrackingOnSide.class));
+                startActivity(new Intent(FirstActivity.this, IdFieldActivity.class));
             }
         });
       /*  Intent i = new Intent(getApplicationContext(), ServiceClass.class);
@@ -204,10 +203,6 @@ public class FirstActivity extends AppCompatActivity {
                 finish();
                 startActivity(getIntent());
                 break;
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-
         }
 
         return true;
