@@ -43,6 +43,9 @@ public class TrackingOnSide extends AppCompatActivity {
        // String ides = (String) getIntent().getExtras().get("idMap");
        // Toast.makeText(this, ""+ides, Toast.LENGTH_SHORT).show();
 
+        getSupportActionBar().setTitle("Location Service");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Intent i = new Intent(getApplicationContext(), ServiceClass.class);
         startService(i);
     }
