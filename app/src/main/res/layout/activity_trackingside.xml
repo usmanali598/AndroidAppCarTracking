@@ -5,7 +5,7 @@
     android:layout_marginTop="25dp"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.usman.proretro.app.TrackingOnSide">
+    tools:context="com.sometry.usman.proretro.app.TrackingOnSide">
 
     <TextView
         android:id="@+id/textView"

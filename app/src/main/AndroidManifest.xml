@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.usman.proretro">
+    package="com.sometry.usman.proretro">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".app.FirstActivity"
+        <activity android:name=".app.IdFieldActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,9 +43,9 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".app.FirstActivity"/>
         </activity>
-        <activity android:name=".app.IdFieldActivity">
+        <activity android:name=".app.FirstActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".app.FirstActivity"/>
+                android:value=".app.IdFieldActivity"/>
         </activity>
         <service android:name=".app.ServiceClass" />
 

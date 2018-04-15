@@ -12,4 +12,4 @@
     map:uiTiltGestures="true"
     map:uiZoomControls="true"
     map:uiZoomGestures="true"
-    tools:context="com.example.usman.proretro.app.MapsActivity" />
+    tools:context="com.sometry.usman.proretro.app.MapsActivity" />

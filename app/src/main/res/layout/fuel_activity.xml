@@ -10,7 +10,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context="com.example.usman.proretro.app.FuelActivity">
+    tools:context="com.sometry.usman.proretro.app.FuelActivity">
 
 
     <ListView

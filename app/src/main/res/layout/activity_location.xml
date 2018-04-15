@@ -9,7 +9,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context="com.example.usman.proretro.app.LocationActivity">
+    tools:context="com.sometry.usman.proretro.app.LocationActivity">
 
    <!-- <include layout="@layout/toolbar_layout"/>-->
 

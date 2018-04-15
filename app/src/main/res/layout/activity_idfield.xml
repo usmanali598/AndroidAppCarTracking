@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context="com.example.usman.proretro.app.IdFieldActivity">
+    tools:context="com.sometry.usman.proretro.app.IdFieldActivity">
 
     <TextView
         android:id="@+id/textView2"
