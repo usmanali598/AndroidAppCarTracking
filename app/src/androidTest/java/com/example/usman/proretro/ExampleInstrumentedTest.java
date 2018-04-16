@@ -1,4 +1,4 @@
-package com.sometry.usman.proretro;
+package com.example.usman.proretro;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class sometryInstrumentedTest {
+public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() throws Exception {
         // Context of the app under test.
