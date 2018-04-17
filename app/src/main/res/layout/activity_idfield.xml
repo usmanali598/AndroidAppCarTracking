@@ -23,7 +23,7 @@
         android:layout_height="80dp"
         android:layout_marginLeft="3dp"
         android:layout_marginTop="7dp"
-        android:text="Your Id is important for sending and retreiving location. You can input 1 as id to see lines on map."
+        android:text="Your Id is important for sending and retreiving location. You can input 1 or 2 as id to see lines on map."
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
